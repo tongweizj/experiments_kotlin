@@ -6,21 +6,29 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.packt.chapterseven.data.Cat
+import com.packt.chapterseven.data.City
 import com.packt.chapterseven.navigation.ContentType
 import com.packt.chapterseven.viewmodel.PetsViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun PetsScreen(
-    onPetClicked: (Cat) -> Unit,
+    onPetClicked: (City) -> Unit,
     contentType: ContentType,
 ) {
     val petsViewModel: PetsViewModel = koinViewModel()
     val petsUIState by petsViewModel.petsUIState.collectAsStateWithLifecycle()
-    PetsScreenContent(
+//    PetsScreenContent(
+//        modifier = Modifier
+//            .fillMaxSize(),
+//        onPetClicked = onPetClicked,
+//        contentType = contentType,
+//        petsUIState = petsUIState
+//    )
+    CityScreenContent(
         modifier = Modifier
             .fillMaxSize(),
-        onPetClicked = onPetClicked,
+        onCityClicked = onPetClicked,
         contentType = contentType,
         petsUIState = petsUIState
     )

@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 data class Cat(
     @SerialName("createdAt")
     val createdAt: String = "",
-    @SerialName("_id")
+    @SerialName("id")
     val id: String,
     @SerialName("owner")
     val owner: String = "",

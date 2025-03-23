@@ -40,6 +40,7 @@ fun PetsScreenContent(
                 PetList(
                     onPetClicked = onPetClicked,
                     pets = petsUIState.pets,
+
                     modifier = Modifier
                         .fillMaxWidth()
                 )

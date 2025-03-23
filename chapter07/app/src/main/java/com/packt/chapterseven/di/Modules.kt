@@ -4,9 +4,10 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import com.packt.chapterseven.data.CatsAPI
 import com.packt.chapterseven.data.PetsRepository
 import com.packt.chapterseven.data.PetsRepositoryImpl
+import com.packt.chapterseven.data.CityRepository
+import com.packt.chapterseven.data.CityRepositoryImpl
 import com.packt.chapterseven.viewmodel.PetsViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import org.koin.dsl.module
@@ -19,8 +20,9 @@ private val json = Json {
 
 val appModules = module {
     single<PetsRepository> { PetsRepositoryImpl(get(), get()) }
+    single<CityRepository> { CityRepositoryImpl() }
     single { Dispatchers.IO }
-    single { PetsViewModel(get()) }
+    single { PetsViewModel(get(),get()) }
     single {
         Retrofit.Builder()
             .addConverterFactory(

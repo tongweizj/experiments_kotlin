@@ -10,6 +10,7 @@ import androidx.navigation.navArgument
 import com.packt.chapterseven.views.FavoritePetsScreen
 import com.packt.chapterseven.views.PetDetailsScreen
 import com.packt.chapterseven.views.PetsScreen
+import com.packt.chapterseven.views.WeatherDetailsScreen
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
@@ -47,6 +48,28 @@ fun AppNavigation(
                 },
                 cat = Json.decodeFromString(it.arguments?.getString("cat") ?: "")
             )
+        }
+        composable(Screens.CityListScreen.route) {
+            PetsScreen(
+                onPetClicked = { cat ->
+                    navHostController.navigate(
+                        "${Screens.PetDetailsScreen.route}/${Json.encodeToString(cat)}"
+                    )
+                },
+                contentType = contentType
+            )
+        }
+        //WeatherScreen
+        composable(
+            route= "${Screens.WeatherScreen.route}/{cityId}",
+            arguments = listOf(navArgument("cityId") { type = NavType.StringType })
+        ){ backStackEntry ->
+            val cityId = backStackEntry.arguments?.getString("cityId")
+            cityId?.let {
+                WeatherDetailsScreen( onBackPressed = {
+                    navHostController.popBackStack()
+                }, it)
+            }
         }
         composable(Screens.FavoritePetsScreen.route) {
             FavoritePetsScreen()

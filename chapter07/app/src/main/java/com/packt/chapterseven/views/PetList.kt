@@ -18,6 +18,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.packt.chapterseven.data.Cat
+import com.packt.chapterseven.data.City
 
 @Composable
 fun PetList(

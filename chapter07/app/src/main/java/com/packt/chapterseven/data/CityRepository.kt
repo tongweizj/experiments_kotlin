@@ -1,4 +1,6 @@
 package com.packt.chapterseven.data
 
-class CityRepository {
+interface CityRepository {
+    fun getCity(): List<City>
+
 }

@@ -12,6 +12,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.packt.chapterseven.data.Cat
+import com.packt.chapterseven.data.City
 
 @Composable
 fun PetListAndDetails(pets: List<Cat>) {
@@ -28,6 +29,7 @@ fun PetListAndDetails(pets: List<Cat>) {
                 currentPet = it
             },
             pets = pets,
+
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
