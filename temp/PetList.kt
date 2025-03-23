@@ -19,7 +19,9 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.packt.chapterseven.data.Cat
 import com.packt.chapterseven.data.City
+import kotlinx.serialization.InternalSerializationApi
 
+@OptIn(InternalSerializationApi::class)
 @Composable
 fun PetList(
     onPetClicked: (Cat) -> Unit,
@@ -38,7 +40,7 @@ fun PetList(
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
+@OptIn(ExperimentalLayoutApi::class, InternalSerializationApi::class)
 @Composable
 fun PetListItem(cat: Cat, onPetClicked: (Cat) -> Unit) {
     ElevatedCard(

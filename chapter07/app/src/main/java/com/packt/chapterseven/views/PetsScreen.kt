@@ -1,16 +1,18 @@
 package com.packt.chapterseven.views
 
+import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.packt.chapterseven.data.Cat
 import com.packt.chapterseven.data.City
 import com.packt.chapterseven.navigation.ContentType
 import com.packt.chapterseven.viewmodel.PetsViewModel
+import kotlinx.serialization.InternalSerializationApi
 import org.koin.androidx.compose.koinViewModel
 
+@OptIn(InternalSerializationApi::class)
 @Composable
 fun PetsScreen(
     onPetClicked: (City) -> Unit,
@@ -18,13 +20,8 @@ fun PetsScreen(
 ) {
     val petsViewModel: PetsViewModel = koinViewModel()
     val petsUIState by petsViewModel.petsUIState.collectAsStateWithLifecycle()
-//    PetsScreenContent(
-//        modifier = Modifier
-//            .fillMaxSize(),
-//        onPetClicked = onPetClicked,
-//        contentType = contentType,
-//        petsUIState = petsUIState
-//    )
+    Log.d("maxLogScreen", "PetsScreen: petsUIState: ${petsUIState.weather.temperature_2m.toString()}")
+
     CityScreenContent(
         modifier = Modifier
             .fillMaxSize(),

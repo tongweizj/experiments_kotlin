@@ -1,4 +1,5 @@
 package com.packt.chapterseven.data
 
-class WeatherApiResp {
-}
+class WeatherApiResp (
+    val current: Weather,
+)

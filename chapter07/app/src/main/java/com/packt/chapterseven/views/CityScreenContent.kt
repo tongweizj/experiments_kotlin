@@ -11,13 +11,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.packt.chapterseven.data.Cat
 import com.packt.chapterseven.data.City
 import com.packt.chapterseven.navigation.ContentType
+import kotlinx.serialization.InternalSerializationApi
 
 
-
-
+@OptIn(InternalSerializationApi::class)
 @Composable
 fun CityScreenContent(
     modifier: Modifier,

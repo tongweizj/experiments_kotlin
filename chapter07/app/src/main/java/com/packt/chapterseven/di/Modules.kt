@@ -1,35 +1,43 @@
 package com.packt.chapterseven.di
 
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import com.packt.chapterseven.data.CatsAPI
+
 import com.packt.chapterseven.data.PetsRepository
 import com.packt.chapterseven.data.PetsRepositoryImpl
 import com.packt.chapterseven.data.CityRepository
 import com.packt.chapterseven.data.CityRepositoryImpl
+import com.packt.chapterseven.data.WeatherApi
 import com.packt.chapterseven.viewmodel.PetsViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.serialization.json.Json
-import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 private val json = Json {
     ignoreUnknownKeys = true
     isLenient = true
 }
-
+val okHttpClient = OkHttpClient.Builder()
+    .connectTimeout(3, TimeUnit.SECONDS)
+    .readTimeout(3, TimeUnit.SECONDS)
+    .writeTimeout(3, TimeUnit.SECONDS)
+    .build()
 val appModules = module {
-    single<PetsRepository> { PetsRepositoryImpl(get(), get()) }
+    single<PetsRepository> { PetsRepositoryImpl(get(),get()) }
     single<CityRepository> { CityRepositoryImpl() }
+
     single { Dispatchers.IO }
-    single { PetsViewModel(get(),get()) }
+    single { PetsViewModel(get(),get(),get()) }
+
     single {
         Retrofit.Builder()
-            .addConverterFactory(
-                json.asConverterFactory(contentType = "application/json".toMediaType())
-            )
-            .baseUrl("https://cataas.com/api/")
+            .baseUrl("https://api.open-meteo.com/")
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-    single { get<Retrofit>().create(CatsAPI::class.java) }
+    single {
+        get<Retrofit>().create(WeatherApi::class.java) }
 }

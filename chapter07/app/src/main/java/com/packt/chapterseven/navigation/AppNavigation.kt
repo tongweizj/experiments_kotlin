@@ -8,13 +8,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.packt.chapterseven.views.FavoritePetsScreen
-import com.packt.chapterseven.views.PetDetailsScreen
 import com.packt.chapterseven.views.PetsScreen
 import com.packt.chapterseven.views.WeatherDetailsScreen
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
+import kotlinx.serialization.InternalSerializationApi
 
 
+@OptIn(InternalSerializationApi::class)
 @Composable
 fun AppNavigation(
     contentType: ContentType,
@@ -22,55 +21,42 @@ fun AppNavigation(
 ) {
     NavHost(
         navController = navHostController,
-        startDestination = Screens.PetsScreen.route
+        startDestination = Screens.CityListScreen.route
     ) {
-        composable(Screens.PetsScreen.route) {
-            PetsScreen(
-                onPetClicked = { cat ->
-                    navHostController.navigate(
-                        "${Screens.PetDetailsScreen.route}/${Json.encodeToString(cat)}"
-                    )
-                },
-                contentType = contentType
-            )
-        }
-        composable(
-            route = "${Screens.PetDetailsScreen.route}/{cat}",
-            arguments = listOf(
-                navArgument("cat") {
-                    type = NavType.StringType
-                }
-            )
-        ) {
-            PetDetailsScreen(
-                onBackPressed = {
-                    navHostController.popBackStack()
-                },
-                cat = Json.decodeFromString(it.arguments?.getString("cat") ?: "")
-            )
-        }
+        //cityList
         composable(Screens.CityListScreen.route) {
             PetsScreen(
-                onPetClicked = { cat ->
+                onPetClicked = { city ->
                     navHostController.navigate(
-                        "${Screens.PetDetailsScreen.route}/${Json.encodeToString(cat)}"
+                        "${Screens.WeatherScreen.route}/${city.id}"
                     )
+
                 },
                 contentType = contentType
             )
         }
         //WeatherScreen
+
         composable(
             route= "${Screens.WeatherScreen.route}/{cityId}",
-            arguments = listOf(navArgument("cityId") { type = NavType.StringType })
-        ){ backStackEntry ->
+            arguments = listOf(
+                navArgument("cityId") {
+                    type = NavType.StringType
+                }
+            )
+        ) { backStackEntry ->
             val cityId = backStackEntry.arguments?.getString("cityId")
             cityId?.let {
-                WeatherDetailsScreen( onBackPressed = {
-                    navHostController.popBackStack()
-                }, it)
+                WeatherDetailsScreen(
+                    onBackPressed = {
+                        navHostController.popBackStack()
+                    },
+                    it
+                )
             }
+
         }
+
         composable(Screens.FavoritePetsScreen.route) {
             FavoritePetsScreen()
         }

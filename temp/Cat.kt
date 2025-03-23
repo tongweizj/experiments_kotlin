@@ -1,6 +1,7 @@
 package com.packt.chapterseven.data
 
 
+import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

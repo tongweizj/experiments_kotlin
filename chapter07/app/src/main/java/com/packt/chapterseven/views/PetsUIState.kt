@@ -1,12 +1,14 @@
 package com.packt.chapterseven.views
 
-import com.packt.chapterseven.data.Cat
 import com.packt.chapterseven.data.City
+import com.packt.chapterseven.data.Weather
+import kotlinx.serialization.InternalSerializationApi
 
 
-data class PetsUIState(
+data class PetsUIState @OptIn(InternalSerializationApi::class) constructor(
     val isLoading: Boolean = false,
-    val pets: List<Cat> = emptyList(),
     val cityList: List<City> = emptyList(),
+    val weather: Weather = Weather(),
+    var weatherMap: HashMap<Int, Weather> = HashMap<Int, Weather>(),
     val error: String? = null
 )

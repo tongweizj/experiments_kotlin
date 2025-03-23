@@ -65,6 +65,8 @@ dependencies {
     implementation(libs.compose.navigation)
     implementation(libs.compose.window.size)
     implementation(libs.androidx.window)
+    // Gson 转换器，用于将 JSON 转换为 Kotlin 对象
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     testImplementation(libs.test.junit)
     androidTestImplementation(libs.test.junitExt)
     androidTestImplementation(libs.test.espresso)

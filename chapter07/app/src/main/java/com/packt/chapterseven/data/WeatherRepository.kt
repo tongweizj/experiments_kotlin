@@ -1,4 +1,5 @@
 package com.packt.chapterseven.data
 
-class WeatherRepository {
+interface WeatherRepository {
+    suspend fun getWeather(): NetworkResult<WeatherApiResp>
 }

@@ -25,8 +25,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.packt.chapterseven.data.Cat
+import kotlinx.serialization.InternalSerializationApi
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, InternalSerializationApi::class)
 @Composable
 fun PetDetailsScreen(onBackPressed: () -> Unit, cat: Cat) {
     Scaffold(
@@ -62,7 +63,7 @@ fun PetDetailsScreen(onBackPressed: () -> Unit, cat: Cat) {
     )
 }
 
-@OptIn(ExperimentalLayoutApi::class)
+@OptIn(ExperimentalLayoutApi::class, InternalSerializationApi::class)
 @Composable
 fun PetDetailsScreenContent(modifier: Modifier, cat: Cat) {
     Column(
