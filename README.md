@@ -1,6 +1,8 @@
 # kotlin_City-Weather
 
+## 版本说明
 
+0.01 分支，用于保存初始代码
 ## Milestone
 
 - 0.01 init
