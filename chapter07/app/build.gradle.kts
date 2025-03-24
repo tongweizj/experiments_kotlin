@@ -2,8 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlinx-serialization")
+    id("com.google.devtools.ksp")
 }
-
 android {
     namespace = "com.packt.chapterseven"
     compileSdk = 34
@@ -43,7 +43,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.6"
+        kotlinCompilerExtensionVersion = "1.5.2"
     }
 
     packagingOptions {
@@ -51,6 +51,10 @@ android {
             pickFirsts.add("META-INF/AL2.0")
             pickFirsts.add("META-INF/LGPL2.1")
         }
+    }
+
+    ksp {
+        arg("room.schemaLocation", "$projectDir/schemas")
     }
 }
 
@@ -67,6 +71,14 @@ dependencies {
     implementation(libs.androidx.window)
     // Gson 转换器，用于将 JSON 转换为 Kotlin 对象
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    //ROOM
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+
+
+
+
     testImplementation(libs.test.junit)
     androidTestImplementation(libs.test.junitExt)
     androidTestImplementation(libs.test.espresso)

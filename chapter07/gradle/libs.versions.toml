@@ -13,6 +13,7 @@ retrofitSerialiazationConverter = "1.0.0"
 serializationJson = "1.5.1"
 coroutines = "1.7.3"
 okhttp3 = "4.11.0"
+room = "2.6.1"
 
 [libraries]
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
@@ -43,6 +44,9 @@ compose-lifecycle = { module = "androidx.lifecycle:lifecycle-runtime-compose", v
 compose-navigation = "androidx.navigation:navigation-compose:2.7.6"
 compose-window-size = "androidx.compose.material3:material3-window-size-class:1.2.0-beta02"
 androidx-window = "androidx.window:window:1.2.0"
+room-runtime = { module = "androidx.room:room-runtime" , version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 
 [bundles]
 compose = ["compose.ui", "compose.ui.graphics", "compose.ui.tooling", "compose.material3", "compose.viewmodel", "coil-compose", "compose-lifecycle"]
