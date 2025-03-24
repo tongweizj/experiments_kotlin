@@ -114,7 +114,7 @@ class MainActivity : ComponentActivity() {
 
                                     },
                                     onHomeClicked = {
-                                        navController.navigate(Screens.PetsScreen.route)
+                                        navController.navigate(Screens.CityListScreen.route)
                                     }
                                 )
                             }
@@ -127,7 +127,7 @@ class MainActivity : ComponentActivity() {
                                 navController.navigate(Screens.FavoritePetsScreen.route)
                             },
                             onHomeClicked = {
-                                navController.navigate(Screens.PetsScreen.route)
+                                navController.navigate(Screens.CityListScreen.route)
                             },
                             navHostController = navController
                         )
@@ -142,7 +142,7 @@ class MainActivity : ComponentActivity() {
 
                                     },
                                     onHomeClicked = {
-                                        navController.navigate(Screens.PetsScreen.route)
+                                        navController.navigate(Screens.CityListScreen.route)
                                     },
                                     onDrawerClicked = {
                                         scope.launch {
@@ -161,7 +161,7 @@ class MainActivity : ComponentActivity() {
                                 navController.navigate(Screens.FavoritePetsScreen.route)
                             },
                             onHomeClicked = {
-                                navController.navigate(Screens.PetsScreen.route)
+                                navController.navigate(Screens.CityListScreen.route)
                             },
                             navHostController = navController,
                             onDrawerClicked = {

@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,21 +16,29 @@ import androidx.compose.ui.unit.sp
 import com.packt.chapterseven.data.City
 import kotlinx.serialization.InternalSerializationApi
 
+
+
 @OptIn(InternalSerializationApi::class)
 @Composable
-fun CityList(
-    onPetClicked: (City) -> Unit,
-    modifier: Modifier = Modifier,
-    cityList:List<City>
-) {
-     LazyColumn(modifier = Modifier.padding(16.dp)) {
-            items(cityList) { city ->
-                cityListItem(
-                    city,
-                    onPetClicked = onPetClicked
-                        )
+fun cityListItem(city: City, onPetClicked: (City) -> Unit) {
+    ElevatedCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(6.dp)
+            .clickable {
+                onPetClicked(city)
             }
-            // Add more content here
+
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Text(text = " ${city.name.toString()}",fontSize = 24.sp,  color = Color.Gray)// 左侧 Text 占据剩余空间)
+            Text(" check weither",fontSize = 16.sp,color = Color.Gray)
+
         }
     }
-
+}

@@ -1,6 +1,5 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
     id("kotlinx-serialization")
     id("com.google.devtools.ksp")
 }
@@ -46,7 +45,7 @@ android {
         kotlinCompilerExtensionVersion = "1.5.2"
     }
 
-    packagingOptions {
+    packaging  {
         resources {
             pickFirsts.add("META-INF/AL2.0")
             pickFirsts.add("META-INF/LGPL2.1")

@@ -3,6 +3,7 @@ package com.packt.chapterseven.viewmodel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.packt.chapterseven.data.asResult
 import com.packt.chapterseven.data.City
 import com.packt.chapterseven.data.CityRepository
 import com.packt.chapterseven.data.NetworkResult
@@ -12,6 +13,7 @@ import com.packt.chapterseven.data.WeatherApi
 import com.packt.chapterseven.views.PetsUIState
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.serialization.InternalSerializationApi
@@ -96,6 +98,64 @@ class PetsViewModel(
             }
 
         }
+    }
+
+    @OptIn(InternalSerializationApi::class)
+    fun toggleFavorite(city: City){
+        viewModelScope.launch {
+            //TODO： 同步数据库
+            // cityRepository.toggleFavorite(city)
+            // 同步state
+
+            val cityToUpdate = petsUIState.value.cityList.find { it == city}
+
+            if (cityToUpdate != null) {
+                cityToUpdate.isFavorite = !cityToUpdate.isFavorite
+            }
+            if(petsUIState.value.favCityList.contains(city)){
+             petsUIState.value.favCityList.remove(city)
+            }else{
+                petsUIState.value.favCityList.add(city)
+            }
+
+        }
+    }
+
+
+    // get fav city list from DB
+
+    @OptIn(InternalSerializationApi::class)
+    private suspend fun getCityList() {
+        petsUIState.value = PetsUIState(isLoading = true)
+        viewModelScope.launch {
+            cityRepository.getCityList().asResult().collect { result ->
+                when (result ) {
+                    is NetworkResult.Success -> {
+                        petsUIState.update {
+                            it.copy(isLoading = false, cityList = result.data)
+                        }
+                    }
+                    is NetworkResult.Error -> {
+                        petsUIState.update {
+                            it.copy(isLoading = false, error = result.error)
+                        }
+                    }
+                }
+            }
+        }
+        if(petsUIState.value.cityList.isEmpty()){
+            //TODO add city to DB
+            // userDao.insert(User(1, "Alice"))
+            cityRepository.populateDatabase()
+        }
+
+    }
+    @OptIn(InternalSerializationApi::class)
+    fun getFavCityList(){
+        viewModelScope.launch {
+            petsUIState.value.favCityList = cityRepository.getFavCityList() as MutableList<City>
+        }
+
     }
 
 }

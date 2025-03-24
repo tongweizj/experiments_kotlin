@@ -19,7 +19,7 @@ fun PetsBottomNavigationBar(
     onFavoriteClicked: () -> Unit,
     onHomeClicked: () -> Unit
 ) {
-    val items = listOf(Screens.PetsScreen, Screens.FavoritePetsScreen)
+    val items = listOf(Screens.CityListScreen, Screens.FavoritePetsScreen)
     val selectedItem = remember { mutableStateOf(items[0]) }
     NavigationBar(
         modifier = Modifier
@@ -27,10 +27,10 @@ fun PetsBottomNavigationBar(
         containerColor = MaterialTheme.colorScheme.background
     ) {
         NavigationBarItem(
-            selected = selectedItem.value == Screens.PetsScreen,
+            selected = selectedItem.value == Screens.CityListScreen,
             onClick = {
                 onHomeClicked()
-                selectedItem.value = Screens.PetsScreen
+                selectedItem.value = Screens.CityListScreen
             },
             icon = {
                 Icon(

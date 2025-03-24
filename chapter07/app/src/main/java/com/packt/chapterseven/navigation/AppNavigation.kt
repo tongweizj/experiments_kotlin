@@ -58,7 +58,14 @@ fun AppNavigation(
         }
 
         composable(Screens.FavoritePetsScreen.route) {
-            FavoritePetsScreen()
+            FavoritePetsScreen(
+                onPetClicked = { city ->
+                    navHostController.navigate(
+                        "${Screens.WeatherScreen.route}/${city.id}"
+                    )
+
+                },
+            )
         }
     }
 }
