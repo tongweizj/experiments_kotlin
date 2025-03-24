@@ -1,6 +1,7 @@
 package com.packt.chapterseven.di
 
-
+import androidx.room.Room
+import com.packt.chapterseven.data.AppDatabase
 import com.packt.chapterseven.data.PetsRepository
 import com.packt.chapterseven.data.PetsRepositoryImpl
 import com.packt.chapterseven.data.CityRepository
@@ -10,10 +11,13 @@ import com.packt.chapterseven.viewmodel.PetsViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+
+
 
 private val json = Json {
     ignoreUnknownKeys = true
@@ -26,7 +30,7 @@ val okHttpClient = OkHttpClient.Builder()
     .build()
 val appModules = module {
     single<PetsRepository> { PetsRepositoryImpl(get(),get()) }
-    single<CityRepository> { CityRepositoryImpl() }
+    single<CityRepository> { CityRepositoryImpl(get(),get()) }
 
     single { Dispatchers.IO }
     single { PetsViewModel(get(),get(),get()) }
@@ -40,4 +44,14 @@ val appModules = module {
     }
     single {
         get<Retrofit>().create(WeatherApi::class.java) }
+
+    single {
+        Room.databaseBuilder(
+            androidContext(),
+            AppDatabase::class.java,
+            "app-database"
+        ).build()
+    }
+    single { get<AppDatabase>().cityDao() }
+
 }

@@ -9,4 +9,5 @@ data class City (
     val name: String,
     val latitude:Double,
     val longitude:Double,
+    var isFavorite: Boolean = false
 )

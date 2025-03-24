@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
     id("kotlinx-serialization")
+    id("kotlin-kapt")
 }
 
 android {
@@ -46,7 +46,7 @@ android {
         kotlinCompilerExtensionVersion = "1.4.6"
     }
 
-    packagingOptions {
+    packaging  {
         resources {
             pickFirsts.add("META-INF/AL2.0")
             pickFirsts.add("META-INF/LGPL2.1")
@@ -67,6 +67,11 @@ dependencies {
     implementation(libs.androidx.window)
     // Gson 转换器，用于将 JSON 转换为 Kotlin 对象
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Room 依赖
+    val roomVersion = "2.6.1" //Check for latest stable version
+    implementation("androidx.room:room-runtime:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
     testImplementation(libs.test.junit)
     androidTestImplementation(libs.test.junitExt)
     androidTestImplementation(libs.test.espresso)
