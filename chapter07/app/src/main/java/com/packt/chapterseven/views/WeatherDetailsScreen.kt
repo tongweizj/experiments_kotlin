@@ -121,13 +121,13 @@ fun PetDetailsScreenContent(modifier: Modifier, cityId: String, petsUIState: Pet
         AnimatedVisibility(
             visible = petsUIState.weather.temperature_2m != null
         ) {
-            CardOverlayBox(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(16.dp),
-                city = petsUIState.cityList[cityId.toInt()],
-                weather = petsUIState.weatherMap[cityId.toInt()]!!
-            )
+             CardOverlayBox(
+                 modifier = Modifier
+                     .fillMaxSize()
+                     .padding(16.dp),
+                 city = petsUIState.cityList[cityId.toInt()],
+                 weather = petsUIState.weatherMap[cityId.toInt()]!!
+             )
 //            FlowRow(
 //                modifier = Modifier
 //                    .padding(start = 6.dp, end = 6.dp)
