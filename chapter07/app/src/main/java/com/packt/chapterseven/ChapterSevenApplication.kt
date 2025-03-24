@@ -13,8 +13,10 @@ import kotlin.getValue
 class ChapterSevenApplication: Application() {
 
 
+
     override fun onCreate() {
         super.onCreate()
+
 
         startKoin {
             androidContext(this@ChapterSevenApplication)  // 关键注入点

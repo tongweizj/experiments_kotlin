@@ -3,11 +3,17 @@ package com.packt.chapterseven.views
 import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -46,8 +52,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
 import coil.compose.AsyncImage
 import com.packt.chapterseven.data.City
-import com.packt.chapterseven.data.Weather
 import com.packt.chapterseven.R
+import com.packt.chapterseven.data.Weather
 import com.packt.chapterseven.navigation.ContentType
 import com.packt.chapterseven.viewmodel.PetsViewModel
 import kotlinx.coroutines.launch
@@ -101,6 +107,8 @@ fun WeatherDetailsScreen(onBackPressed: () -> Unit, cityId: String
             )
         }
     )
+
+
 
 
 }
@@ -204,3 +212,5 @@ fun CardOverlayBox(modifier: Modifier = Modifier,city: City,weather: Weather) {
         }
     }
 }
+
+
