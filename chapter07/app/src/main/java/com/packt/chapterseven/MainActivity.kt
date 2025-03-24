@@ -19,6 +19,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.compose.rememberNavController
 import androidx.window.layout.FoldingFeature
 import androidx.window.layout.WindowInfoTracker
+import androidx.work.Constraints
+import androidx.work.ExistingWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.packt.chapterseven.navigation.AppNavigationContent
 import com.packt.chapterseven.navigation.ContentType
 import com.packt.chapterseven.navigation.DeviceFoldPosture
@@ -33,10 +38,13 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
+import com.packt.chapterseven.workers.PetsSyncWorker
+
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        startPetsSync()
         val deviceFoldingPostureFlow = WindowInfoTracker.getOrCreate(this).windowLayoutInfo(this)
             .flowWithLifecycle(this.lifecycle)
             .map { layoutInfo ->
@@ -174,5 +182,23 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+
+    private fun startPetsSync() {
+        val syncPetsWorkRequest = OneTimeWorkRequestBuilder<PetsSyncWorker>()
+            .setConstraints(
+                Constraints.Builder()
+                    .setRequiredNetworkType(NetworkType.CONNECTED)
+                    .setRequiresBatteryNotLow(true)
+                    .build()
+            )
+            .build()
+
+        WorkManager.getInstance(applicationContext).enqueueUniqueWork(
+            "PetsSyncWorker",
+            ExistingWorkPolicy.KEEP,
+            syncPetsWorkRequest
+        )
     }
 }

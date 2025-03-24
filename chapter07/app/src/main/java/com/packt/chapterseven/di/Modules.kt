@@ -8,10 +8,12 @@ import com.packt.chapterseven.data.CityRepository
 import com.packt.chapterseven.data.CityRepositoryImpl
 import com.packt.chapterseven.data.WeatherApi
 import com.packt.chapterseven.viewmodel.PetsViewModel
+import com.packt.chapterseven.workers.PetsSyncWorker
 import kotlinx.coroutines.Dispatchers
 import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.workmanager.dsl.worker
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -53,5 +55,7 @@ val appModules = module {
         ).build()
     }
     single { get<AppDatabase>().cityDao() }
+
+    worker { PetsSyncWorker(get(), get(), get()) }
 
 }

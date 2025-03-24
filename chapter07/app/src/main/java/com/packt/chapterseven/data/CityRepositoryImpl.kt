@@ -1,5 +1,6 @@
 package com.packt.chapterseven.data
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
@@ -35,7 +36,6 @@ class CityRepositoryImpl(
     // Form Database
     @OptIn(InternalSerializationApi::class)
     override suspend fun getCityList(): Flow<List<City>> {
-
         return withContext(dispatcher) {
             cityDao.getCityList()
                 .map { cityCached ->
@@ -79,9 +79,7 @@ class CityRepositoryImpl(
     // populateDatabase 填充数据库
 
     override suspend fun populateDatabase() {
-        // 在这里插入初始数据
-//        userDao.insert(User(1, "Alice"))
-//        userDao.insert(User(2, "Bob"))
+        withContext(dispatcher) {
         cityDao.insertCity(CityEntity(0, "Toronto", 43.86103683452462, -79.23287065483638,false ))
         cityDao.insertCity(CityEntity(1, "Vancouver", 49.252552096536505, -123.10502410368238,false ))
         cityDao.insertCity(CityEntity(2, "Calgary", 51.05100152533885, -114.05653795148136,false ))
@@ -90,6 +88,8 @@ class CityRepositoryImpl(
         cityDao.insertCity(CityEntity(5, "Montreal",45.50777247053132, -73.62612495783571,false ))
         cityDao.insertCity(CityEntity(6, "Halifax", 44.652188986681566, -63.609229201539925,false ))
         cityDao.insertCity(CityEntity(7, "Fredericton", 45.957529552114686, -66.65116587843863,false ))
+        Log.d("maxLog", "populateDatabase push data to db!")
         // ... 更多数据
+        }
     }
 }

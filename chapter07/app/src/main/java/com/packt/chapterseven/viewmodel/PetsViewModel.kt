@@ -28,13 +28,14 @@ class PetsViewModel(
     val petsUIState = MutableStateFlow(PetsUIState())
 
     init {
-        getPets()
+//        getPets()
+        getCityList()
+
     }
 
     @OptIn(InternalSerializationApi::class)
     private fun getPets() {
         petsUIState.value = PetsUIState(isLoading = true)
-        Log.d("maxLog", "PetsViewModel: petsUIState: ${petsUIState.toString()}")
         val item:City =  City(1, "Toronto", 43.86103683452462, -79.23287065483638 )
         viewModelScope.launch {
             when (val result = petsRepository.getWeather(item.latitude,item.longitude)) {
@@ -74,15 +75,10 @@ class PetsViewModel(
     }
     @OptIn(InternalSerializationApi::class)
     fun getWeather(latitude: Double, longitude: Double) {
-        Log.d("maxLog", "getWeather:${latitude}")
-        Log.d("maxLog", "viewModelScope out:${latitude}")
         viewModelScope.launch {
-            Log.d("CoroutineLog", "viewModelScope协程启动，线程：${Thread.currentThread().name}")
-            Log.d("maxLog", "viewModelScope:${latitude}")
             petsUIState.update { it.copy(isLoading = true ) }
             when (val result = petsRepository.getWeather(latitude,longitude)) {
                 is NetworkResult.Success -> {
-                    Log.d("maxLog", "PetsViewModel1: weather: ${result.data.current .toString()}")
                     petsUIState.update {
                         it.copy(isLoading = false, weather = result.data.current )
                     }
@@ -100,33 +96,12 @@ class PetsViewModel(
         }
     }
 
+
+    // get data from DB
     @OptIn(InternalSerializationApi::class)
-    fun toggleFavorite(city: City){
-        viewModelScope.launch {
-            //TODO： 同步数据库
-            // cityRepository.toggleFavorite(city)
-            // 同步state
-
-            val cityToUpdate = petsUIState.value.cityList.find { it == city}
-
-            if (cityToUpdate != null) {
-                cityToUpdate.isFavorite = !cityToUpdate.isFavorite
-            }
-            if(petsUIState.value.favCityList.contains(city)){
-             petsUIState.value.favCityList.remove(city)
-            }else{
-                petsUIState.value.favCityList.add(city)
-            }
-
-        }
-    }
-
-
-    // get fav city list from DB
-
-    @OptIn(InternalSerializationApi::class)
-    private suspend fun getCityList() {
+     fun getCityList() {
         petsUIState.value = PetsUIState(isLoading = true)
+        Log.d("maxLog", "getCityList start:${petsUIState.value.cityList.toString()}")
         viewModelScope.launch {
             cityRepository.getCityList().asResult().collect { result ->
                 when (result ) {
@@ -142,20 +117,43 @@ class PetsViewModel(
                     }
                 }
             }
-        }
-        if(petsUIState.value.cityList.isEmpty()){
-            //TODO add city to DB
-            // userDao.insert(User(1, "Alice"))
-            cityRepository.populateDatabase()
+            Log.d("maxLog", "getCityList end of get data from db:${petsUIState.value.cityList.toString()}")
+            if(petsUIState.value.cityList.isEmpty()){
+                //TODO add city to DB
+                // userDao.insert(User(1, "Alice"))
+                cityRepository.populateDatabase()
+                getCityList()
+            }
         }
 
+
     }
+    // get fav city list from DB
     @OptIn(InternalSerializationApi::class)
     fun getFavCityList(){
         viewModelScope.launch {
             petsUIState.value.favCityList = cityRepository.getFavCityList() as MutableList<City>
         }
+    }
 
+    @OptIn(InternalSerializationApi::class)
+    fun toggleFavorite(city: City){
+        viewModelScope.launch {
+            //TODO： 同步数据库
+            // cityRepository.toggleFavorite(city)
+            // 同步state
+            val cityToUpdate = petsUIState.value.cityList.find { it == city}
+
+            if (cityToUpdate != null) {
+                cityToUpdate.isFavorite = !cityToUpdate.isFavorite
+            }
+            if(petsUIState.value.favCityList.contains(city)){
+                petsUIState.value.favCityList.remove(city)
+            }else{
+                petsUIState.value.favCityList.add(city)
+            }
+
+        }
     }
 
 }

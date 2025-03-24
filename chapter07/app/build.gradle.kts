@@ -75,8 +75,9 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
-
-
+    //workmanager
+    implementation(libs.work.runtime)
+    implementation(libs.workmanager.koin)
 
 
     testImplementation(libs.test.junit)
