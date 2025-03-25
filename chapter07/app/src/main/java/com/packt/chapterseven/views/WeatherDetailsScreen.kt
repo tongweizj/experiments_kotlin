@@ -60,7 +60,7 @@ fun WeatherDetailsScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(text = "Weather Details")
+                    Text(text = "Weather Details", color = Color.White)
                 },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
@@ -71,7 +71,8 @@ fun WeatherDetailsScreen(
                         content = {
                             Icon(
                                 imageVector = Icons.Default.ArrowBack,
-                                contentDescription = "Back"
+                                contentDescription = "Back",
+                                tint=Color.White
                             )
                         }
                     )

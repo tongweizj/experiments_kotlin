@@ -36,7 +36,7 @@ fun FavoritePetsScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "No favorite pets")
+            Text(text = "No favorite cities")
         }
     } else {
         LazyColumn(
