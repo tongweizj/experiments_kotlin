@@ -52,32 +52,47 @@ class CityRepositoryImpl(
         }
     }
 
-    @OptIn(InternalSerializationApi::class)
-    override suspend fun toggleFavorite(city: City) {
-        city.isFavorite = !city.isFavorite
-        //TODO 同步数据库
-    }
+//    @OptIn(InternalSerializationApi::class)
+//    override suspend fun toggleFavorite(city: City) {
+//        city.isFavorite = !city.isFavorite
+//        //TODO 同步数据库
+//    }
 
 
     @OptIn(InternalSerializationApi::class)
-    override  fun getFavCityList():List<City> {
-        TODO("Not yet implemented")
-        var favCityList: List<City> = listOf()
-        favCityList = getCity().filter { it.isFavorite }
-        return favCityList
+    override  suspend fun getFavoriteCities():Flow<List<City>>  {
+
+        return withContext(dispatcher) {
+            cityDao.getFavoriteCities()
+                .map { citiesCached ->
+                    citiesCached.map { cityEntity ->
+                        City(
+                            id = cityEntity.id,
+                            name = cityEntity.name,
+                            latitude = cityEntity.latitude,
+                            longitude = cityEntity.longitude,
+                            isFavorite = cityEntity.isFavorite
+                        )
+                    }
+                }
+        }
     }
 
     @OptIn(InternalSerializationApi::class)
     override suspend fun updateCity(city: City) {
-        TODO("Not yet implemented")
+        withContext(dispatcher) {
+            cityDao.update(CityEntity(
+                        id = city.id,
+                name = city.name,
+                latitude = city.latitude,
+                longitude = city.longitude,
+                isFavorite = city.isFavorite
+            ))
+        }
     }
-    @OptIn(InternalSerializationApi::class)
-    override suspend fun getFavoritecity(): Flow<List<City>> {
-        TODO("Not yet implemented")
-    }
+
 
     // populateDatabase 填充数据库
-
     override suspend fun populateDatabase() {
         withContext(dispatcher) {
         cityDao.insertCity(CityEntity(0, "Toronto", 43.86103683452462, -79.23287065483638,false ))

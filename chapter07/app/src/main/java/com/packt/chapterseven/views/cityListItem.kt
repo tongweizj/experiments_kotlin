@@ -18,27 +18,27 @@ import kotlinx.serialization.InternalSerializationApi
 
 
 
-@OptIn(InternalSerializationApi::class)
-@Composable
-fun cityListItem(city: City, onPetClicked: (City) -> Unit) {
-    ElevatedCard(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(6.dp)
-            .clickable {
-                onPetClicked(city)
-            }
-
-    ) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-
-            Text(text = " ${city.name.toString()}",fontSize = 24.sp,  color = Color.Gray)// 左侧 Text 占据剩余空间)
-            Text(" check weither",fontSize = 16.sp,color = Color.Gray)
-
-        }
-    }
-}
+//@OptIn(InternalSerializationApi::class)
+//@Composable
+//fun cityListItem(city: City, onPetClicked: (City) -> Unit) {
+//    ElevatedCard(
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .padding(6.dp)
+//            .clickable {
+//                onPetClicked(city)
+//            }
+//
+//    ) {
+//        Column(
+//            modifier = Modifier.padding(16.dp),
+//            verticalArrangement = Arrangement.Center,
+//            horizontalAlignment = Alignment.CenterHorizontally
+//        ) {
+//
+//            Text(text = " ${city.name.toString()}",fontSize = 24.sp,  color = Color.Gray)// 左侧 Text 占据剩余空间)
+//            Text(" check weither",fontSize = 16.sp,color = Color.Gray)
+//
+//        }
+//    }
+//}

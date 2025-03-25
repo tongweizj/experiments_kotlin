@@ -16,10 +16,10 @@ interface CityDao {
     fun getCityList(): Flow<List<CityEntity>>
 
     @Update
-    suspend fun updateCity(cityEntity: CityEntity)
+    suspend fun update(cityEntity: CityEntity)
 
 
     @Query("SELECT * FROM City where isFavorite = 1")
-    fun getFavCity(): Flow<List<CityEntity>>
+    fun getFavoriteCities(): Flow<List<CityEntity>>
 
 }
