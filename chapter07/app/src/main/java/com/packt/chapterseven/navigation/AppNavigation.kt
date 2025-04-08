@@ -8,7 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.packt.chapterseven.views.FavoritePetsScreen
-import com.packt.chapterseven.views.PetsScreen
+import com.packt.chapterseven.views.CitiesScreen
 import com.packt.chapterseven.views.WeatherDetailsScreen
 import kotlinx.serialization.InternalSerializationApi
 
@@ -25,12 +25,11 @@ fun AppNavigation(
     ) {
         //cityList
         composable(Screens.CityListScreen.route) {
-            PetsScreen(
+            CitiesScreen(
                 onPetClicked = { city ->
                     navHostController.navigate(
                         "${Screens.WeatherScreen.route}/${city.id}"
                     )
-
                 },
                 contentType = contentType
             )
@@ -51,14 +50,21 @@ fun AppNavigation(
                     onBackPressed = {
                         navHostController.popBackStack()
                     },
-                    it
+                    cityID= cityId
                 )
             }
 
         }
 
         composable(Screens.FavoritePetsScreen.route) {
-            FavoritePetsScreen()
+            FavoritePetsScreen(
+                onPetClicked = { city ->
+                    navHostController.navigate(
+                        "${Screens.WeatherScreen.route}/${city.id}"
+                    )
+
+                },
+            )
         }
     }
 }

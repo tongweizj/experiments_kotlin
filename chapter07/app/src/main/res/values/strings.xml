@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Chapter Seven</string>
+    <string name="default_city">Toronto City</string>
+    <string name="toronto">Toronto City</string>
+    <string name="vancouver">Vancouver City</string>
+    <string name="calgary">Calgary City</string>
+    <string name="saskatoon">Saskatoon City</string>
+    <string name="winnipeg">Winnipeg City</string>
+    <string name="montreal">Montreal City</string>
+    <string name="halifax">Halifax City</string>
+    <string name="fredericton">Fredericton City</string>
 </resources>

@@ -20,13 +20,15 @@ fun PetsScreen(
 ) {
     val petsViewModel: PetsViewModel = koinViewModel()
     val petsUIState by petsViewModel.petsUIState.collectAsStateWithLifecycle()
-    Log.d("maxLogScreen", "PetsScreen: petsUIState: ${petsUIState.weather.temperature_2m.toString()}")
 
     CityScreenContent(
         modifier = Modifier
             .fillMaxSize(),
         onCityClicked = onPetClicked,
         contentType = contentType,
-        petsUIState = petsUIState
+        petsUIState = petsUIState,
+        onFavoriteClicked = {
+            petsViewModel.updatePet(it)
+        }
     )
 }

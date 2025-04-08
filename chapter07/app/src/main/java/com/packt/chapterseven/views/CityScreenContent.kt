@@ -22,7 +22,8 @@ fun CityScreenContent(
     modifier: Modifier,
     onCityClicked: (City) -> Unit,
     contentType: ContentType,
-    petsUIState: PetsUIState
+    petsUIState: PetsUIState,
+    onFavoriteClicked: (City) -> Unit
 ) {
     Column(
         modifier = modifier
@@ -43,9 +44,9 @@ fun CityScreenContent(
                 CityList(
                     onPetClicked = onCityClicked,
                     cityList = petsUIState.cityList,
-
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .fillMaxWidth(),
+                    onFavoriteClicked = onFavoriteClicked
                 )
             }
 
