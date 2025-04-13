@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import com.packt.chapterseven.navigation.Screens
 
 @Composable
-fun PetsNavigationDrawer(
+fun NavigationDrawer(
     onFavoriteClicked: () -> Unit,
     onHomeClicked: () -> Unit,
     onDrawerClicked: () -> Unit = {}

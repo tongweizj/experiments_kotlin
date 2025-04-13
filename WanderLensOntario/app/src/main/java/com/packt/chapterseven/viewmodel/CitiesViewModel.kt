@@ -10,7 +10,7 @@ import com.packt.chapterseven.data.NetworkResult
 import com.packt.chapterseven.data.PetsRepository
 import com.packt.chapterseven.data.Weather
 import com.packt.chapterseven.data.WeatherApi
-import com.packt.chapterseven.views.PetsUIState
+import com.packt.chapterseven.views.CitiesUIState
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,13 +19,13 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.InternalSerializationApi
 
 
-class PetsViewModel(
+class CitiesViewModel(
     private val petsRepository: PetsRepository,
     private val cityRepository: CityRepository,
     private val weatherApi: WeatherApi,
 ): ViewModel() {
     @OptIn(InternalSerializationApi::class)
-    val petsUIState = MutableStateFlow(PetsUIState())
+    val citiesUIState = MutableStateFlow(CitiesUIState())
     @OptIn(InternalSerializationApi::class)
     private val _favoriteCities = MutableStateFlow<List<City>>(emptyList())
     @OptIn(InternalSerializationApi::class)
@@ -36,7 +36,7 @@ class PetsViewModel(
     }
     @OptIn(InternalSerializationApi::class)
      fun getAllCityWeather(cityList: List<City>){
-        //val cityList = petsUIState.value.cityList
+        //val cityList = citiesUIState.value.cityList
         viewModelScope.launch {
             Log.d("maxLog", "getAllCityWeather:${cityList.toString()}")
 
@@ -47,9 +47,9 @@ class PetsViewModel(
                 // 处理成功响应，例如更新 UI
                 weather?.let {
                     // 使用 weather 对象更新 UI 或执行其他操作
-                    val weatherMapData: HashMap<Int, Weather> = petsUIState.value.weatherMap
+                    val weatherMapData: HashMap<Int, Weather> = citiesUIState.value.weatherMap
                     weatherMapData[city.id] = it.current
-                    petsUIState.value.weatherMap =  weatherMapData
+                    citiesUIState.value.weatherMap =  weatherMapData
                 }
             } else {
                 val errorCode = response.code()
@@ -61,7 +61,7 @@ class PetsViewModel(
     }}
     @OptIn(InternalSerializationApi::class)
     private fun getPets() {
-        petsUIState.value = PetsUIState(isLoading = true)
+        citiesUIState.value = CitiesUIState(isLoading = true)
         val item:City =  City(1, "Toronto", 43.86103683452462, -79.23287065483638 )
         viewModelScope.launch {
             when (val result = petsRepository.getWeather(item.latitude,item.longitude)) {
@@ -75,9 +75,9 @@ class PetsViewModel(
                             // 处理成功响应，例如更新 UI
                             weather?.let {
                                 // 使用 weather 对象更新 UI 或执行其他操作
-                                val weatherMapData: HashMap<Int, Weather> = petsUIState.value.weatherMap
+                                val weatherMapData: HashMap<Int, Weather> = citiesUIState.value.weatherMap
                                 weatherMapData[city.id] = it.current
-                                petsUIState.value.weatherMap =  weatherMapData
+                                citiesUIState.value.weatherMap =  weatherMapData
                             }
                         } else {
                             val errorCode = response.code()
@@ -86,12 +86,12 @@ class PetsViewModel(
                             println("错误代码：$errorCode，错误信息：$errorBody")
                         }
                     }
-                    petsUIState.update {
+                    citiesUIState.update {
                         it.copy(isLoading = false,cityList= cityResult, weather = result.data.current )
                     }
                 }
                 is NetworkResult.Error -> {
-                    petsUIState.update {
+                    citiesUIState.update {
                         it.copy(isLoading = false, error = result.error)
                     }
                 }
@@ -110,19 +110,19 @@ class PetsViewModel(
     // get data from DB
     @OptIn(InternalSerializationApi::class)
      fun getCityList() {
-        petsUIState.value = PetsUIState(isLoading = true)
-        //Log.d("maxLog", "getCityList start:${petsUIState.value.cityList.toString()}")
+        citiesUIState.value = CitiesUIState(isLoading = true)
+        //Log.d("maxLog", "getCityList start:${citiesUIState.value.cityList.toString()}")
         viewModelScope.launch {
             cityRepository.getCityList().asResult().collect { result ->
                 when (result ) {
                     is NetworkResult.Success -> {
-                        petsUIState.update {
+                        citiesUIState.update {
                             it.copy(isLoading = false, cityList = result.data)
                         }
                         //getAllCityWeather(result.data)
                     }
                     is NetworkResult.Error -> {
-                        petsUIState.update {
+                        citiesUIState.update {
                             it.copy(isLoading = false, error = result.error)
                         }
                     }
@@ -146,15 +146,15 @@ class PetsViewModel(
             //TODO： 同步数据库
             // cityRepository.toggleFavorite(city)
             // 同步state
-            val cityToUpdate = petsUIState.value.cityList.find { it == city}
+            val cityToUpdate = citiesUIState.value.cityList.find { it == city}
 
             if (cityToUpdate != null) {
                 cityToUpdate.isFavorite = !cityToUpdate.isFavorite
             }
-            if(petsUIState.value.favCityList.contains(city)){
-                petsUIState.value.favCityList.remove(city)
+            if(citiesUIState.value.favCityList.contains(city)){
+                citiesUIState.value.favCityList.remove(city)
             }else{
-                petsUIState.value.favCityList.add(city)
+                citiesUIState.value.favCityList.add(city)
             }
 
         }

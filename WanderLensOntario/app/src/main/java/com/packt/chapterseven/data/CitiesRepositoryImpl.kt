@@ -5,10 +5,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.InternalSerializationApi
 
-class PetsRepositoryImpl(
+class CitiesRepositoryImpl(
     private  val weatherApi: WeatherApi,
     private val dispatcher: CoroutineDispatcher
-): PetsRepository {
+): CitiesRepository {
 
     @OptIn(InternalSerializationApi::class)
     override suspend fun getWeather(latitude: Double, longitude: Double): NetworkResult<WeatherApiResp> {

@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import com.packt.chapterseven.navigation.Screens
 
 @Composable
-fun PetsBottomNavigationBar(
+fun BottomNavigationBar(
     onFavoriteClicked: () -> Unit,
     onHomeClicked: () -> Unit
 ) {
