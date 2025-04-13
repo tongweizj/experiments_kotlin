@@ -15,12 +15,12 @@ import androidx.compose.ui.Modifier
 import com.packt.chapterseven.navigation.Screens
 
 @Composable
-fun PetsNavigationRail(
+fun NavigationRail(
     onFavoriteClicked: () -> Unit,
     onHomeClicked: () -> Unit,
     onDrawerClicked: () -> Unit
 ) {
-    val items = listOf(Screens.CityListScreen, Screens.FavoriteScreen)
+    val items = listOf(Screens.CitiesScreen, Screens.FavoriteScreen)
     val selectedItem = remember { mutableStateOf(items[0]) }
 
     NavigationRail(
@@ -39,10 +39,10 @@ fun PetsNavigationRail(
         )
 
         NavigationRailItem(
-            selected = selectedItem.value == Screens.CityListScreen,
+            selected = selectedItem.value == Screens.CitiesScreen,
             onClick = {
                 onHomeClicked()
-                selectedItem.value = Screens.CityListScreen
+                selectedItem.value = Screens.CitiesScreen
             },
             icon = {
                 Icon(

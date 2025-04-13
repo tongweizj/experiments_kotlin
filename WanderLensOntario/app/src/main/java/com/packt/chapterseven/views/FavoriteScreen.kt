@@ -13,22 +13,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.packt.chapterseven.data.City
-import com.packt.chapterseven.viewmodel.PetsViewModel
+import com.packt.chapterseven.viewmodel.CitiesViewModel
 import kotlinx.serialization.InternalSerializationApi
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(InternalSerializationApi::class)
 @Composable
 fun FavoriteScreen(
-    onPetClicked: (City) -> Unit
+    onCityClicked: (City) -> Unit
 ) {
-    val petsViewModel: PetsViewModel = koinViewModel()
+    val citiesViewModel: CitiesViewModel = koinViewModel()
     LaunchedEffect(Unit) {
-        petsViewModel.getFavoriteCities()
+        citiesViewModel.getFavoriteCities()
     }
-    val pets by petsViewModel.favoriteCities.collectAsStateWithLifecycle()
+    val cities by citiesViewModel.favoriteCities.collectAsStateWithLifecycle()
 
-    if (pets.isEmpty()) {
+    if (cities.isEmpty()) {
         Column(
             modifier = Modifier
                 .fillMaxSize(),
@@ -42,12 +42,12 @@ fun FavoriteScreen(
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            items(pets) { pet ->
-                PetListItem(
+            items(cities) { pet ->
+                CityListItem(
                     city = pet,
-                    onPetClicked = onPetClicked,
+                    onCityClicked = onCityClicked,
                     onFavoriteClicked = {
-                        petsViewModel.updatePet(it)
+                        citiesViewModel.updatePet(it)
                     }
                 )
             }

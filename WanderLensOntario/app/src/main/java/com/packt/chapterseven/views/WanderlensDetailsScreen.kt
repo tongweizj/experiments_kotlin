@@ -44,7 +44,7 @@ import com.google.maps.android.compose.Polyline
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.google.maps.android.compose.Marker
 import com.packt.chapterseven.data.City
-import com.packt.chapterseven.viewmodel.PetsViewModel
+import com.packt.chapterseven.viewmodel.CitiesViewModel
 import kotlinx.serialization.InternalSerializationApi
 import org.koin.androidx.compose.koinViewModel
 import com.google.maps.android.compose.rememberMarkerState
@@ -71,9 +71,9 @@ fun WanderlensDetailsScreen(
     onBackPressed: () -> Unit,
     cityID: String
 ) {
-    val petsViewModel: PetsViewModel = koinViewModel()
-    val petsUIState by petsViewModel.petsUIState.collectAsStateWithLifecycle()
-    val city = petsUIState.cityList[cityID.toInt()]
+    val citiesViewModel: CitiesViewModel = koinViewModel()
+    val citiesUIState by citiesViewModel.citiesUIState.collectAsStateWithLifecycle()
+    val city = citiesUIState.cityList[cityID.toInt()]
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
 
     Scaffold(
@@ -106,7 +106,7 @@ fun WanderlensDetailsScreen(
                 actions={Icon(
                         modifier = Modifier
                             .clickable {
-                                    petsViewModel.updatePet(city.copy(isFavorite = !city.isFavorite))
+                                    citiesViewModel.updatePet(city.copy(isFavorite = !city.isFavorite))
                             },
                 imageVector = if (city.isFavorite) {
                     Icons.Default.Favorite
@@ -131,7 +131,7 @@ fun WanderlensDetailsScreen(
                     .padding(paddingValues),
                 city = city,
                 onFavoriteClicked = {
-                    petsViewModel.updatePet(it)
+                    citiesViewModel.updatePet(it)
                 }
             )
         }

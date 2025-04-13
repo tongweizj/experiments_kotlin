@@ -9,8 +9,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import com.packt.chapterseven.views.PetsBottomNavigationBar
-import com.packt.chapterseven.views.PetsNavigationRail
+import com.packt.chapterseven.views.BottomNavigationBar
+import com.packt.chapterseven.views.NavigationRail
 
 @Composable
 fun AppNavigationContent(
@@ -28,7 +28,7 @@ fun AppNavigationContent(
         AnimatedVisibility(
             visible = navigationType == NavigationType.NavigationRail
         ) {
-            PetsNavigationRail(
+            NavigationRail(
                 onFavoriteClicked = onFavoriteClicked,
                 onHomeClicked = onHomeClicked,
                 onDrawerClicked = onDrawerClicked
@@ -51,7 +51,7 @@ fun AppNavigationContent(
                 AnimatedVisibility(
                     visible = navigationType == NavigationType.BottomNavigation
                 ) {
-                    PetsBottomNavigationBar(
+                    BottomNavigationBar(
                         onFavoriteClicked = onFavoriteClicked,
                         onHomeClicked = onHomeClicked
                     )

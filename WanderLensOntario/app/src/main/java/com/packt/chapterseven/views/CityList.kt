@@ -35,7 +35,7 @@ import kotlinx.serialization.InternalSerializationApi
 @OptIn(InternalSerializationApi::class)
 @Composable
 fun CityList(
-    onPetClicked: (City) -> Unit,
+    onCityClicked: (City) -> Unit,
     cityList: List<City>,
     modifier: Modifier,
     onFavoriteClicked: (City) -> Unit
@@ -44,91 +44,12 @@ fun CityList(
         modifier = modifier
     ) {
         items(cityList) { city ->
-            PetListItem(
+            CityListItem(
                 city = city,
-                onPetClicked = onPetClicked,
+                onCityClicked = onCityClicked,
                 onFavoriteClicked = onFavoriteClicked
             )
         }
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class, InternalSerializationApi::class)
-@Composable
-fun PetListItem(
-    city: City,
-    onPetClicked: (City) -> Unit,
-    onFavoriteClicked: (City) -> Unit
-) {
-    // 创建景点城市名称到资源ID的映射
-    val cityImageMap = mapOf(
-        "thousand islands" to R.drawable.t1000islands,
-        "niagara falls" to R.drawable.niagarafalls,
-        "cn tower" to R.drawable.cntower,
-        "parliament hill" to R.drawable.parliamenthill,
-        "algonquin provincial park" to R.drawable.algonquin,
-        "blue mountain resort" to R.drawable.bluemountainresort,
-        "royal ontario museum" to R.drawable.rom,
-        "niagara on the lake" to R.drawable.niagaraonthelake,
-        "bruce peninsula national park" to R.drawable.brucepeninsulanationalpark,
-        "canada wonderland" to R.drawable.wonderland,
-        "toronto islands" to R.drawable.torontoislands,
-        "ripley aquarium of canada" to R.drawable.aquarium,
-        "sault ste marie canal" to R.drawable.saultstemariecanal,
-        "sleeping giant" to R.drawable.sleepinggiant
-    )
-    val imageRes = cityImageMap[city.name.lowercase()] ?: R.drawable.default_city
-    ElevatedCard(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(6.dp)
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 10.dp)
-                .clickable {
-                    onPetClicked(city)
-                }
-        ) {
-            Image(
-                painter = painterResource(id = imageRes),
-                contentDescription = "${city.name} MarkLand",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp),
-                contentScale = ContentScale.FillWidth
-            )
-
-            Row(
-                modifier = Modifier
-                    .padding(start = 12.dp, top = 8.dp, end = 12.dp)
-                    .height(40.dp)
-                    .fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-
-                Text(text = city.name, fontSize = 24.sp )
-                Icon(
-                    modifier = Modifier
-                        .clickable {
-                            onFavoriteClicked(city.copy(isFavorite = !city.isFavorite))
-                        },
-                    imageVector = if (city.isFavorite) {
-                        Icons.Default.Favorite
-                    } else {
-                        Icons.Default.FavoriteBorder
-                    },
-                    contentDescription = "Favorite",
-                    tint = if (city.isFavorite) {
-                        Color.Red
-                    } else {
-                        Color.Gray
-                    },
-                )
-
-            }
-        }
-    }
-}

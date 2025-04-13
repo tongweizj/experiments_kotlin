@@ -32,7 +32,7 @@ import com.packt.chapterseven.navigation.Screens
 import com.packt.chapterseven.navigation.isBookPosture
 import com.packt.chapterseven.navigation.isSeparating
 import com.packt.chapterseven.ui.theme.ChapterSevenTheme
-import com.packt.chapterseven.views.PetsNavigationDrawer
+import com.packt.chapterseven.views.NavigationDrawer
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
@@ -116,13 +116,13 @@ class MainActivity : ComponentActivity() {
                     PermanentNavigationDrawer(
                         drawerContent = {
                             PermanentDrawerSheet {
-                                PetsNavigationDrawer(
+                                NavigationDrawer(
                                     onFavoriteClicked = {
                                         navController.navigate(Screens.FavoriteScreen.route)
 
                                     },
                                     onHomeClicked = {
-                                        navController.navigate(Screens.CityListScreen.route)
+                                        navController.navigate(Screens.CitiesScreen.route)
                                     }
                                 )
                             }
@@ -135,7 +135,7 @@ class MainActivity : ComponentActivity() {
                                 navController.navigate(Screens.FavoriteScreen.route)
                             },
                             onHomeClicked = {
-                                navController.navigate(Screens.CityListScreen.route)
+                                navController.navigate(Screens.CitiesScreen.route)
                             },
                             navHostController = navController
                         )
@@ -144,13 +144,13 @@ class MainActivity : ComponentActivity() {
                     ModalNavigationDrawer(
                         drawerContent = {
                             ModalDrawerSheet {
-                                PetsNavigationDrawer(
+                                NavigationDrawer(
                                     onFavoriteClicked = {
                                         navController.navigate(Screens.FavoriteScreen.route)
 
                                     },
                                     onHomeClicked = {
-                                        navController.navigate(Screens.CityListScreen.route)
+                                        navController.navigate(Screens.CitiesScreen.route)
                                     },
                                     onDrawerClicked = {
                                         scope.launch {
@@ -169,7 +169,7 @@ class MainActivity : ComponentActivity() {
                                 navController.navigate(Screens.FavoriteScreen.route)
                             },
                             onHomeClicked = {
-                                navController.navigate(Screens.CityListScreen.route)
+                                navController.navigate(Screens.CitiesScreen.route)
                             },
                             navHostController = navController,
                             onDrawerClicked = {

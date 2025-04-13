@@ -31,7 +31,7 @@ fun NavigationDrawer(
     onHomeClicked: () -> Unit,
     onDrawerClicked: () -> Unit = {}
 ) {
-    val items = listOf(Screens.CityListScreen, Screens.FavoriteScreen)
+    val items = listOf(Screens.CitiesScreen, Screens.FavoriteScreen)
     val selectedItem = remember { mutableStateOf(items[0]) }
     Column(
         modifier = Modifier
@@ -63,10 +63,10 @@ fun NavigationDrawer(
         }
         NavigationDrawerItem(
             label = { Text(text = "Pets") },
-            selected = selectedItem.value == Screens.CityListScreen,
+            selected = selectedItem.value == Screens.CitiesScreen,
             onClick = {
                 onHomeClicked()
-                selectedItem.value = Screens.CityListScreen
+                selectedItem.value = Screens.CitiesScreen
             },
             icon = {
                 Icon(

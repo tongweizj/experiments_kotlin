@@ -19,7 +19,7 @@ fun BottomNavigationBar(
     onFavoriteClicked: () -> Unit,
     onHomeClicked: () -> Unit
 ) {
-    val items = listOf(Screens.CityListScreen, Screens.FavoriteScreen)
+    val items = listOf(Screens.CitiesScreen, Screens.FavoriteScreen)
     val selectedItem = remember { mutableStateOf(items[0]) }
     NavigationBar(
         modifier = Modifier
@@ -27,10 +27,10 @@ fun BottomNavigationBar(
         containerColor = MaterialTheme.colorScheme.background
     ) {
         NavigationBarItem(
-            selected = selectedItem.value == Screens.CityListScreen,
+            selected = selectedItem.value == Screens.CitiesScreen,
             onClick = {
                 onHomeClicked()
-                selectedItem.value = Screens.CityListScreen
+                selectedItem.value = Screens.CitiesScreen
             },
             icon = {
                 Icon(

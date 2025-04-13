@@ -21,12 +21,12 @@ fun AppNavigation(
 ) {
     NavHost(
         navController = navHostController,
-        startDestination = Screens.CityListScreen.route
+        startDestination = Screens.CitiesScreen.route
     ) {
         //cityList
-        composable(Screens.CityListScreen.route) {
+        composable(Screens.CitiesScreen.route) {
             CitiesScreen(
-                onPetClicked = { city ->
+                onCityClicked = { city ->
                     navHostController.navigate(
                         "${Screens.WanderlenScreen.route}/${city.id}"
                     )
@@ -58,7 +58,7 @@ fun AppNavigation(
 
         composable(Screens.FavoriteScreen.route) {
             FavoriteScreen(
-                onPetClicked = { city ->
+                onCityClicked = { city ->
                     navHostController.navigate(
                         "${Screens.WanderlenScreen.route}/${city.id}"
                     )
