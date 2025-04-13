@@ -43,10 +43,7 @@ import com.google.maps.android.compose.MapUiSettings
 import com.google.maps.android.compose.Polyline
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.google.maps.android.compose.Marker
-import com.google.maps.android.compose.MarkerState
-import com.packt.chapterseven.R
 import com.packt.chapterseven.data.City
-import com.packt.chapterseven.data.Weather
 import com.packt.chapterseven.viewmodel.PetsViewModel
 import kotlinx.serialization.InternalSerializationApi
 import org.koin.androidx.compose.koinViewModel
@@ -65,11 +62,8 @@ import retrofit2.Response
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.android.gms.location.LocationServices
-import kotlinx.coroutines.tasks.await  // 关键导入
-import com.google.android.gms.tasks.Task
-import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 @OptIn(ExperimentalMaterial3Api::class, InternalSerializationApi::class)
 @Composable
@@ -112,10 +106,7 @@ fun WeatherDetailsScreen(
                 actions={Icon(
                         modifier = Modifier
                             .clickable {
-
                                     petsViewModel.updatePet(city.copy(isFavorite = !city.isFavorite))
-
-
                             },
                 imageVector = if (city.isFavorite) {
                     Icons.Default.Favorite
@@ -139,7 +130,6 @@ fun WeatherDetailsScreen(
                     .fillMaxWidth()
                     .padding(paddingValues),
                 city = city,
-
                 onFavoriteClicked = {
                     petsViewModel.updatePet(it)
                 }
@@ -156,19 +146,6 @@ fun PetDetailsScreenContent(
 
     onFavoriteClicked: (City) -> Unit
 ) {
-    // 城市图片映射
-//    val cityImageMap = mapOf(
-//        "toronto" to R.drawable.toronto,
-//        "vancouver" to R.drawable.vancouver,
-//        "calgary" to R.drawable.calgary,
-//        "saskatoon" to R.drawable.saskatoon,
-//        "winnipeg" to R.drawable.winnipeg,
-//        "montreal" to R.drawable.montreal,
-//        "halifax" to R.drawable.halifax,
-//        "fredericton" to R.drawable.fredericton
-//    )
-//    val imageRes = cityImageMap[city.name.lowercase()] ?: R.drawable.default_city
-
     Column(
         modifier = modifier.fillMaxHeight(),
         verticalArrangement = Arrangement.Top,
@@ -203,7 +180,9 @@ fun MapScreen(
 
     val context = LocalContext.current
     var polylinePoints by remember { mutableStateOf<List<LatLng>?>(null) }
-    var currentLocation by remember { mutableStateOf<LatLng>(sourceLocation) }
+    var currentLocation by remember { mutableStateOf(sourceLocation) }
+
+
     val cameraState = rememberCameraPositionState {
         position = CameraPosition.fromLatLngZoom(destinationLocation, 10f)
     }
@@ -217,13 +196,6 @@ fun MapScreen(
     )
     // 获取当前位置
     val fusedLocationClient = remember { LocationServices.getFusedLocationProviderClient(context) }
-
-    // 检查权限并获取位置
-//    LaunchedEffect(locationPermissionsState.allPermissionsGranted) {
-//        if (!locationPermissionsState.allPermissionsGranted) {
-//            locationPermissionsState.launchMultiplePermissionRequest()
-//        }
-//    }
 
     LaunchedEffect(locationPermissionsState.allPermissionsGranted) {
         if (locationPermissionsState.allPermissionsGranted) {
