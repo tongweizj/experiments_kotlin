@@ -118,7 +118,7 @@ class MainActivity : ComponentActivity() {
                             PermanentDrawerSheet {
                                 PetsNavigationDrawer(
                                     onFavoriteClicked = {
-                                        navController.navigate(Screens.FavoritePetsScreen.route)
+                                        navController.navigate(Screens.FavoriteScreen.route)
 
                                     },
                                     onHomeClicked = {
@@ -132,7 +132,7 @@ class MainActivity : ComponentActivity() {
                             navigationType = navigationType,
                             contentType = contentType,
                             onFavoriteClicked = {
-                                navController.navigate(Screens.FavoritePetsScreen.route)
+                                navController.navigate(Screens.FavoriteScreen.route)
                             },
                             onHomeClicked = {
                                 navController.navigate(Screens.CityListScreen.route)
@@ -146,7 +146,7 @@ class MainActivity : ComponentActivity() {
                             ModalDrawerSheet {
                                 PetsNavigationDrawer(
                                     onFavoriteClicked = {
-                                        navController.navigate(Screens.FavoritePetsScreen.route)
+                                        navController.navigate(Screens.FavoriteScreen.route)
 
                                     },
                                     onHomeClicked = {
@@ -166,7 +166,7 @@ class MainActivity : ComponentActivity() {
                             navigationType = navigationType,
                             contentType = contentType,
                             onFavoriteClicked = {
-                                navController.navigate(Screens.FavoritePetsScreen.route)
+                                navController.navigate(Screens.FavoriteScreen.route)
                             },
                             onHomeClicked = {
                                 navController.navigate(Screens.CityListScreen.route)

@@ -7,9 +7,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.packt.chapterseven.views.FavoritePetsScreen
+import com.packt.chapterseven.views.FavoriteScreen
 import com.packt.chapterseven.views.CitiesScreen
-import com.packt.chapterseven.views.WeatherDetailsScreen
+import com.packt.chapterseven.views.WanderlensDetailsScreen
 import kotlinx.serialization.InternalSerializationApi
 
 
@@ -28,16 +28,16 @@ fun AppNavigation(
             CitiesScreen(
                 onPetClicked = { city ->
                     navHostController.navigate(
-                        "${Screens.WeatherScreen.route}/${city.id}"
+                        "${Screens.WanderlenScreen.route}/${city.id}"
                     )
                 },
                 contentType = contentType
             )
         }
-        //WeatherScreen
 
+        //WanderlenScreen
         composable(
-            route= "${Screens.WeatherScreen.route}/{cityId}",
+            route= "${Screens.WanderlenScreen.route}/{cityId}",
             arguments = listOf(
                 navArgument("cityId") {
                     type = NavType.StringType
@@ -46,7 +46,7 @@ fun AppNavigation(
         ) { backStackEntry ->
             val cityId = backStackEntry.arguments?.getString("cityId")
             cityId?.let {
-                WeatherDetailsScreen(
+                WanderlensDetailsScreen(
                     onBackPressed = {
                         navHostController.popBackStack()
                     },
@@ -56,11 +56,11 @@ fun AppNavigation(
 
         }
 
-        composable(Screens.FavoritePetsScreen.route) {
-            FavoritePetsScreen(
+        composable(Screens.FavoriteScreen.route) {
+            FavoriteScreen(
                 onPetClicked = { city ->
                     navHostController.navigate(
-                        "${Screens.WeatherScreen.route}/${city.id}"
+                        "${Screens.WanderlenScreen.route}/${city.id}"
                     )
 
                 },

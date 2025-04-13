@@ -67,7 +67,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 @OptIn(ExperimentalMaterial3Api::class, InternalSerializationApi::class)
 @Composable
-fun WeatherDetailsScreen(
+fun WanderlensDetailsScreen(
     onBackPressed: () -> Unit,
     cityID: String
 ) {
