@@ -1,81 +1,102 @@
 package com.packt.chapterseven.views
 
-
-import android.util.Log
-import androidx.compose.foundation.Image
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
-
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.compose.GoogleMap
+import com.google.maps.android.compose.MapProperties
+import com.google.maps.android.compose.MapUiSettings
+import com.google.maps.android.compose.Polyline
+import com.google.maps.android.compose.rememberCameraPositionState
+import com.google.maps.android.compose.Marker
+import com.google.maps.android.compose.MarkerState
 import com.packt.chapterseven.R
 import com.packt.chapterseven.data.City
 import com.packt.chapterseven.data.Weather
 import com.packt.chapterseven.viewmodel.PetsViewModel
 import kotlinx.serialization.InternalSerializationApi
 import org.koin.androidx.compose.koinViewModel
-
-
-import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.maps.android.compose.rememberMarkerState
+import com.google.maps.android.PolyUtil
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Query
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.text.style.TextOverflow
+import com.google.android.gms.maps.model.LatLngBounds
+import com.google.android.gms.maps.CameraUpdateFactory
+import retrofit2.Response
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.model.CameraPosition
-import com.google.android.gms.maps.model.LatLng
-import com.google.maps.android.compose.GoogleMap
-import com.google.maps.android.compose.MapProperties
-import com.google.maps.android.compose.rememberCameraPositionState
-import com.google.maps.android.compose.Marker
-import com.google.maps.android.compose.MarkerState
-
+import kotlinx.coroutines.tasks.await  // 关键导入
+import com.google.android.gms.tasks.Task
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 @OptIn(ExperimentalMaterial3Api::class, InternalSerializationApi::class)
 @Composable
 fun WeatherDetailsScreen(
     onBackPressed: () -> Unit,
-    cityID: String) {
+    cityID: String
+) {
     val petsViewModel: PetsViewModel = koinViewModel()
     val petsUIState by petsViewModel.petsUIState.collectAsStateWithLifecycle()
     val city = petsUIState.cityList[cityID.toInt()]
-    val weather = petsUIState.weatherMap[cityID.toInt()]
-    Log.d("maxLog", "weatherMap start:${petsUIState.weatherMap.toString()}")
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
+
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = "location Details", color = Color.White)
-                },
-                colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
+            CenterAlignedTopAppBar(
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    containerColor = Color.White,
+                    titleContentColor = Color.Black, // 标题文字颜色
+                    navigationIconContentColor = Color.Black // 返回图标颜色
                 ),
+                title = {
+                    Text(
+                        city.name,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                },
                 navigationIcon = {
                     IconButton(
                         onClick = onBackPressed,
@@ -83,11 +104,33 @@ fun WeatherDetailsScreen(
                             Icon(
                                 imageVector = Icons.Default.ArrowBack,
                                 contentDescription = "Back",
-                                tint=Color.White
+                                tint = Color.Black
                             )
                         }
                     )
-                }
+                },
+                actions={Icon(
+                        modifier = Modifier
+                            .clickable {
+
+                                    petsViewModel.updatePet(city.copy(isFavorite = !city.isFavorite))
+
+
+                            },
+                imageVector = if (city.isFavorite) {
+                    Icons.Default.Favorite
+                } else {
+                    Icons.Default.FavoriteBorder
+                },
+                contentDescription = "Favorite",
+                tint = if (city.isFavorite) {
+                    Color.Red
+                } else {
+                    Color.Gray
+                },
+            )},
+
+                    scrollBehavior = scrollBehavior,
             )
         },
         content = { paddingValues ->
@@ -96,8 +139,8 @@ fun WeatherDetailsScreen(
                     .fillMaxWidth()
                     .padding(paddingValues),
                 city = city,
-                weather = weather!!,
-                onFavoriteClicked  = {
+
+                onFavoriteClicked = {
                     petsViewModel.updatePet(it)
                 }
             )
@@ -110,90 +153,211 @@ fun WeatherDetailsScreen(
 fun PetDetailsScreenContent(
     modifier: Modifier,
     city: City,
-    weather: Weather,
-onFavoriteClicked: (City) -> Unit
+
+    onFavoriteClicked: (City) -> Unit
 ) {
-    lateinit var fusedLocationClient: FusedLocationProviderClient
-    // 创建城市名称到资源ID的映射
-    // TODO 重构时，放到viewmodel里面
-    val cityImageMap = mapOf(
-        "toronto" to R.drawable.toronto,
-        "vancouver" to R.drawable.vancouver,
-        "calgary" to R.drawable.calgary,
-        "saskatoon" to R.drawable.saskatoon,
-        "winnipeg" to R.drawable.winnipeg,
-        "montreal" to R.drawable.montreal,
-        "halifax" to R.drawable.halifax,
-        "fredericton" to R.drawable.fredericton
-    )
-    val imageRes = cityImageMap[city.name.lowercase()] ?: R.drawable.default_city
+    // 城市图片映射
+//    val cityImageMap = mapOf(
+//        "toronto" to R.drawable.toronto,
+//        "vancouver" to R.drawable.vancouver,
+//        "calgary" to R.drawable.calgary,
+//        "saskatoon" to R.drawable.saskatoon,
+//        "winnipeg" to R.drawable.winnipeg,
+//        "montreal" to R.drawable.montreal,
+//        "halifax" to R.drawable.halifax,
+//        "fredericton" to R.drawable.fredericton
+//    )
+//    val imageRes = cityImageMap[city.name.lowercase()] ?: R.drawable.default_city
+
     Column(
         modifier = modifier.fillMaxHeight(),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
-
-        Row(
-            modifier = Modifier
-                .padding(start = 12.dp, top = 8.dp, end = 12.dp)
-                .height(40.dp)
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-
-            Text(text = city.name, fontSize = 24.sp, fontWeight = FontWeight.Bold )
-            Icon(
-                modifier = Modifier
-                    .clickable {
-                        onFavoriteClicked(city.copy(isFavorite = !city.isFavorite))
-                    },
-                imageVector = if (city.isFavorite) {
-                    Icons.Default.Favorite
-                } else {
-                    Icons.Default.FavoriteBorder
-                },
-                contentDescription = "Favorite",
-                tint = if (city.isFavorite) {
-                    Color.Red
-                } else {
-                    Color.Gray
-                },
-            )
-
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
-                .padding(12.dp)
+                .padding(1.dp)
         ) {
-            MapScreen()
-        }
+            // 根据城市设置不同的坐标点
+            val destinationLocation = LatLng(city.latitude, city.longitude)
 
+            // 假设用户当前位置（实际应用中应该获取真实位置）
+            val sourceLocation = LatLng(43.8673, -79.3358)
+
+            MapScreen(
+                sourceLocation = sourceLocation,
+                destinationLocation = destinationLocation
+            )
+        }
     }
 }
 
-
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
-fun MapScreen() {
-    val singapore = LatLng(1.35, 103.87)  // 新加坡坐标
+fun MapScreen(
+    sourceLocation: LatLng,
+    destinationLocation: LatLng
+) {
+
+    val context = LocalContext.current
+    var polylinePoints by remember { mutableStateOf<List<LatLng>?>(null) }
+    var currentLocation by remember { mutableStateOf<LatLng>(sourceLocation) }
     val cameraState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(singapore, 10f) // 缩放级别10
+        position = CameraPosition.fromLatLngZoom(destinationLocation, 10f)
+    }
+
+    // 权限处理
+    val locationPermissionsState = rememberMultiplePermissionsState(
+        permissions = listOf(
+            android.Manifest.permission.ACCESS_FINE_LOCATION,
+            android.Manifest.permission.ACCESS_COARSE_LOCATION
+        )
+    )
+    // 获取当前位置
+    val fusedLocationClient = remember { LocationServices.getFusedLocationProviderClient(context) }
+
+    // 检查权限并获取位置
+//    LaunchedEffect(locationPermissionsState.allPermissionsGranted) {
+//        if (!locationPermissionsState.allPermissionsGranted) {
+//            locationPermissionsState.launchMultiplePermissionRequest()
+//        }
+//    }
+
+    LaunchedEffect(locationPermissionsState.allPermissionsGranted) {
+        if (locationPermissionsState.allPermissionsGranted) {
+            try {
+                val location = try {
+                    withContext(Dispatchers.IO) {
+                        fusedLocationClient.lastLocation.await()
+                    }
+                } catch (e: Exception) {
+                    null
+                }
+
+                location?.let {
+                    currentLocation = LatLng(it.latitude, it.longitude)
+                    // 获取路径的代码...
+                } ?: run {
+                    Toast.makeText(context, "无法获取当前位置", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                Toast.makeText(context, "错误: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    // 获取路径
+    LaunchedEffect(currentLocation, destinationLocation) {
+        if (locationPermissionsState.allPermissionsGranted) {
+            try {
+                val directionsService = Retrofit.Builder()
+                    .baseUrl("https://maps.googleapis.com/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+                    .create(DirectionsService::class.java)
+
+                val response = directionsService.getDirections(
+                    "${currentLocation.latitude},${currentLocation.longitude}",
+                    "${destinationLocation.latitude},${destinationLocation.longitude}",
+                    "AIzaSyA6WCBp-Lzr3fzXPawDmG__8Kg5kbGymNE"
+                )
+
+                if (response.isSuccessful) {
+                    val points = response.body()?.routes?.firstOrNull()?.overview_polyline?.points
+                    points?.let {
+                        polylinePoints = PolyUtil.decode(it)
+                        // 调整相机位置
+                        val bounds = LatLngBounds.Builder()
+                            .include(currentLocation)
+                            .include(destinationLocation)
+                            .apply {
+                                polylinePoints?.forEach { latLng -> include(latLng) }
+                            }
+                            .build()
+                        cameraState.animate(CameraUpdateFactory.newLatLngBounds(bounds, 100))
+                    }
+                }
+            } catch (e: Exception) {
+                Toast.makeText(context, "路径加载失败", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    // 只在有权限时启用位置功能
+    val mapProperties = remember {
+        MapProperties(
+            isMyLocationEnabled = locationPermissionsState.allPermissionsGranted,
+            maxZoomPreference = 15f
+        )
     }
 
     GoogleMap(
         modifier = Modifier.fillMaxSize(),
         cameraPositionState = cameraState,
-        properties = MapProperties(maxZoomPreference = 15f)
+        properties = mapProperties,
+        uiSettings = MapUiSettings(
+            zoomControlsEnabled = true,
+            compassEnabled = true
+        )
     ) {
+        // 标记和路径
+        currentLocation.let {
+            Marker(
+                state = rememberMarkerState(position = it),
+                title = "起点",
+                icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)
+            )
+        }
         Marker(
-            state = MarkerState(position = singapore),
-            title = "Singapore Marker",
-            snippet = "This is a marker in Singapore."
+            state = rememberMarkerState(position = destinationLocation),
+            title = "终点",
+            icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)
+        )
+        polylinePoints?.let { points ->
+            Polyline(
+                points = points,
+                color = Color(0xFF4285F4),
+                width = 12f
+            )
+        }
+    }
+
+    // 处理权限被拒绝的情况
+    if (!locationPermissionsState.allPermissionsGranted) {
+        AlertDialog(
+            onDismissRequest = { /* */ },
+            title = { Text("需要位置权限") },
+            text = { Text("此功能需要位置权限以提供更好的服务") },
+            confirmButton = {
+                Button(onClick = { locationPermissionsState.launchMultiplePermissionRequest() }) {
+                    Text("请求权限")
+                }
+            }
         )
     }
 }
+
+// Directions API服务接口
+interface DirectionsService {
+    @GET("maps/api/directions/json")
+    suspend fun getDirections(
+        @Query("origin") origin: String,
+        @Query("destination") destination: String,
+        @Query("key") key: String
+    ): Response<DirectionsResponse>
+}
+
+// API响应数据结构
+data class DirectionsResponse(
+    val routes: List<Route>
+)
+
+data class Route(
+    val overview_polyline: OverviewPolyline
+)
+
+data class OverviewPolyline(
+    val points: String
+)

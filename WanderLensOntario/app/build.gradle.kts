@@ -81,6 +81,7 @@ dependencies {
     implementation(libs.compose.window.size)
     implementation(libs.androidx.window)
     // Gson 转换器，用于将 JSON 转换为 Kotlin 对象
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     //ROOM
     implementation(libs.room.runtime)
@@ -93,7 +94,12 @@ dependencies {
     implementation ("com.google.android.gms:play-services-maps:18.0.2")
     implementation ("com.google.maps.android:maps-compose:2.0.0")
     implementation("com.google.android.libraries.places:places:4.1.0")
+    implementation("com.google.maps.android:android-maps-utils:3.4.0")
+    implementation ("com.google.accompanist:accompanist-permissions:0.32.0")
+    implementation ("com.google.android.gms:play-services-location:21.0.1")
 
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.1")  // 对Play服务的支持
     testImplementation(libs.test.junit)
     androidTestImplementation(libs.test.junitExt)
     androidTestImplementation(libs.test.espresso)

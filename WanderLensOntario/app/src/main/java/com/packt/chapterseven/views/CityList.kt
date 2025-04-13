@@ -60,16 +60,22 @@ fun PetListItem(
     onPetClicked: (City) -> Unit,
     onFavoriteClicked: (City) -> Unit
 ) {
-    // 创建城市名称到资源ID的映射
+    // 创建景点城市名称到资源ID的映射
     val cityImageMap = mapOf(
-        "toronto" to R.drawable.toronto,
-        "vancouver" to R.drawable.vancouver,
-        "calgary" to R.drawable.calgary,
-        "saskatoon" to R.drawable.saskatoon,
-        "winnipeg" to R.drawable.winnipeg,
-        "montreal" to R.drawable.montreal,
-        "halifax" to R.drawable.halifax,
-        "fredericton" to R.drawable.fredericton
+        "thousand islands" to R.drawable.t1000islands,
+        "niagara falls" to R.drawable.niagarafalls,
+        "cn tower" to R.drawable.cntower,
+        "parliament hill" to R.drawable.parliamenthill,
+        "algonquin provincial park" to R.drawable.algonquin,
+        "blue mountain resort" to R.drawable.bluemountainresort,
+        "royal ontario museum" to R.drawable.rom,
+        "niagara on the lake" to R.drawable.niagaraonthelake,
+        "bruce peninsula national park" to R.drawable.brucepeninsulanationalpark,
+        "canada wonderland" to R.drawable.wonderland,
+        "toronto islands" to R.drawable.torontoislands,
+        "ripley aquarium of canada" to R.drawable.aquarium,
+        "sault ste marie canal" to R.drawable.saultstemariecanal,
+        "sleeping giant" to R.drawable.sleepinggiant
     )
     val imageRes = cityImageMap[city.name.lowercase()] ?: R.drawable.default_city
     ElevatedCard(
@@ -85,14 +91,6 @@ fun PetListItem(
                     onPetClicked(city)
                 }
         ) {
-//            AsyncImage(
-//                model = "https://cataas.com/cat/${city.id}",
-//                contentDescription = "Cute cat",
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .height(200.dp),
-//                contentScale = ContentScale.FillWidth
-//            )
             Image(
                 painter = painterResource(id = imageRes),
                 contentDescription = "${city.name} MarkLand",

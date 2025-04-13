@@ -1,12 +1,18 @@
 <resources>
     <string name="app_name">Chapter Seven</string>
     <string name="default_city">Toronto City</string>
-    <string name="toronto">Toronto City</string>
-    <string name="vancouver">Vancouver City</string>
-    <string name="calgary">Calgary City</string>
-    <string name="saskatoon">Saskatoon City</string>
-    <string name="winnipeg">Winnipeg City</string>
-    <string name="montreal">Montreal City</string>
-    <string name="halifax">Halifax City</string>
-    <string name="fredericton">Fredericton City</string>
+    <string name="t1000islands">Thousand Island</string>
+    <string name="niagarafalls">Niagara Falls</string>
+    <string name="cntower">CN Tower, Toronto</string>
+    <string name="parliamenthill">Parliament Hill</string>
+    <string name="algonquin">Algonquin Provincial Park</string>
+    <string name="bluemountainresort">Blue Mountain Resort</string>
+    <string name="rom">Royal Ontario Museum</string>
+    <string name="niagaraonthelake">Niagara-on-the-Lake</string>
+    <string name="brucepeninsulanationalpark">Bruce Peninsula National Park</string>
+    <string name="wonderland">Canada Wonderland</string>
+    <string name="torontoislands">Toronto Islands</string>
+    <string name="aquarium">Ripley Aquarium of Canada</string>
+    <string name="saultstemariecanal">Sault Ste. Marie Canal</string>
+    <string name="sleepinggiant">Sleeping Giant, Thunder Bay</string>
 </resources>

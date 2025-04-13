@@ -95,16 +95,21 @@ class CityRepositoryImpl(
     // populateDatabase 填充数据库
     override suspend fun populateDatabase() {
         withContext(dispatcher) {
-        cityDao.insertCity(CityEntity(0, "Toronto", 43.86103683452462, -79.23287065483638,false ))
-        cityDao.insertCity(CityEntity(1, "Vancouver", 49.252552096536505, -123.10502410368238,false ))
-        cityDao.insertCity(CityEntity(2, "Calgary", 51.05100152533885, -114.05653795148136,false ))
-        cityDao.insertCity(CityEntity(3, "Saskatoon", 52.13194145777011, -106.63495622942521,false ))
-        cityDao.insertCity(CityEntity(4, "Winnipeg", 49.888323109512, -97.15428850402311,false ))
-        cityDao.insertCity(CityEntity(5, "Montreal",45.50777247053132, -73.62612495783571,false ))
-        cityDao.insertCity(CityEntity(6, "Halifax", 44.652188986681566, -63.609229201539925,false ))
-        cityDao.insertCity(CityEntity(7, "Fredericton", 45.957529552114686, -66.65116587843863,false ))
+        cityDao.insertCity(CityEntity(0, "Niagara Falls", 43.07794038118995, -79.07801266265763,false ))
+        cityDao.insertCity(CityEntity(1, "CN Tower", 43.64258946316858, -79.38712117551113,false ))
+        cityDao.insertCity(CityEntity(2, "Parliament Hill", 45.42375180376362, -75.70091827358915,false ))
+        cityDao.insertCity(CityEntity(3, "Thousand Islands", 44.361391198716085, -76.00435602348027,false ))
+        cityDao.insertCity(CityEntity(4, "Algonquin Provincial Park", 45.83727119267289, -78.37914536008243,false ))
+        cityDao.insertCity(CityEntity(5, "Blue Mountain Resort", 44.50192814967334, -80.31648728329542,false ))
+        cityDao.insertCity(CityEntity(6, "Royal Ontario Museum", 43.66788816859609, -79.39483074667382,false ))
+        cityDao.insertCity(CityEntity(7, "Niagara on the Lake", 43.092875649144965, -79.10181633670241,false ))
+        cityDao.insertCity(CityEntity(8, "Bruce Peninsula National Park", 45.22019627293353, -81.53072878708778,false ))
+        cityDao.insertCity(CityEntity(9, "Canada Wonderland", 43.84250115771652, -79.54126914666733,false ))
+        cityDao.insertCity(CityEntity(10, "Toronto Islands", 43.620598839195516, -79.37761566733012,false ))
+        cityDao.insertCity(CityEntity(11, "ripley aquarium of canada", 43.64234151640285, -79.3866129313292,false ))
+        cityDao.insertCity(CityEntity(12, "Sault Ste Marie Canal", 46.51353071101094, -84.3500919778278,false ))
+        cityDao.insertCity(CityEntity(13, "Sleeping Giant", 48.353588159787996, -88.90314351610981,false ))
         Log.d("maxLog", "populateDatabase push data to db!")
-        // ... 更多数据
         }
     }
 }

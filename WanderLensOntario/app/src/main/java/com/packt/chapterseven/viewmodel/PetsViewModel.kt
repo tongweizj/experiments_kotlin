@@ -99,25 +99,6 @@ class PetsViewModel(
 
         }
     }
-//    @OptIn(InternalSerializationApi::class)
-//    fun getWeather(latitude: Double, longitude: Double) {
-//        viewModelScope.launch {
-//            petsUIState.update { it.copy(isLoading = true ) }
-//            when (val result = petsRepository.getWeather(latitude,longitude)) {
-//                is NetworkResult.Success -> {
-//                    petsUIState.update {
-//                        it.copy(isLoading = false, weather = result.data.current )
-//                    }
-//                }
-//                is NetworkResult.Error -> {
-//                    petsUIState.update {
-//                        it.copy(isLoading = false, error = result.error)
-//                    }
-//                 }
-//            }
-//
-//        }
-//    }
 
     @OptIn(InternalSerializationApi::class)
     fun updatePet(city: City) {
@@ -130,7 +111,7 @@ class PetsViewModel(
     @OptIn(InternalSerializationApi::class)
      fun getCityList() {
         petsUIState.value = PetsUIState(isLoading = true)
-        Log.d("maxLog", "getCityList start:${petsUIState.value.cityList.toString()}")
+        //Log.d("maxLog", "getCityList start:${petsUIState.value.cityList.toString()}")
         viewModelScope.launch {
             cityRepository.getCityList().asResult().collect { result ->
                 when (result ) {
@@ -138,7 +119,7 @@ class PetsViewModel(
                         petsUIState.update {
                             it.copy(isLoading = false, cityList = result.data)
                         }
-                        getAllCityWeather(result.data)
+                        //getAllCityWeather(result.data)
                     }
                     is NetworkResult.Error -> {
                         petsUIState.update {

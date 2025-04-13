@@ -6,12 +6,6 @@ import kotlinx.serialization.InternalSerializationApi
 interface CityRepository {
     @OptIn(InternalSerializationApi::class)
     fun getCity(): List<City>
-//    @OptIn(InternalSerializationApi::class)
-//    suspend fun toggleFavorite(city: City)
-
-//    @OptIn(InternalSerializationApi::class)
-//     fun getFavCityList():List<City>
-
      // From DATABASE
     @OptIn(InternalSerializationApi::class)
     suspend fun getCityList(): Flow<List<City>>
