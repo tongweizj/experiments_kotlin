@@ -7,9 +7,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.packt.chapterseven.views.FavoriteScreen
+import com.packt.chapterseven.views.FavoritePetsScreen
 import com.packt.chapterseven.views.CitiesScreen
-import com.packt.chapterseven.views.WanderlenDetailsScreen
+import com.packt.chapterseven.views.WeatherDetailsScreen
 import kotlinx.serialization.InternalSerializationApi
 
 
@@ -21,23 +21,23 @@ fun AppNavigation(
 ) {
     NavHost(
         navController = navHostController,
-        startDestination = Screens.CitiesScreen.route
+        startDestination = Screens.CityListScreen.route
     ) {
         //cityList
-        composable(Screens.CitiesScreen.route) {
+        composable(Screens.CityListScreen.route) {
             CitiesScreen(
-                onCityClicked = { city ->
+                onPetClicked = { city ->
                     navHostController.navigate(
-                        "${Screens.WanderlenScreen.route}/${city.id}"
+                        "${Screens.WeatherScreen.route}/${city.id}"
                     )
                 },
                 contentType = contentType
             )
         }
+        //WeatherScreen
 
-        //WanderlenScreen
         composable(
-            route= "${Screens.WanderlenScreen.route}/{cityId}",
+            route= "${Screens.WeatherScreen.route}/{cityId}",
             arguments = listOf(
                 navArgument("cityId") {
                     type = NavType.StringType
@@ -46,7 +46,7 @@ fun AppNavigation(
         ) { backStackEntry ->
             val cityId = backStackEntry.arguments?.getString("cityId")
             cityId?.let {
-                WanderlenDetailsScreen(
+                WeatherDetailsScreen(
                     onBackPressed = {
                         navHostController.popBackStack()
                     },
@@ -56,11 +56,11 @@ fun AppNavigation(
 
         }
 
-        composable(Screens.FavoriteScreen.route) {
-            FavoriteScreen(
-                onCityClicked = { city ->
+        composable(Screens.FavoritePetsScreen.route) {
+            FavoritePetsScreen(
+                onPetClicked = { city ->
                     navHostController.navigate(
-                        "${Screens.WanderlenScreen.route}/${city.id}"
+                        "${Screens.WeatherScreen.route}/${city.id}"
                     )
 
                 },

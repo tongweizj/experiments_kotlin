@@ -102,16 +102,14 @@ class CityRepositoryImpl(
         cityDao.insertCity(CityEntity(4, "Algonquin Provincial Park", 45.83727119267289, -78.37914536008243,false ))
         cityDao.insertCity(CityEntity(5, "Blue Mountain Resort", 44.50192814967334, -80.31648728329542,false ))
         cityDao.insertCity(CityEntity(6, "Royal Ontario Museum", 43.66788816859609, -79.39483074667382,false ))
+        cityDao.insertCity(CityEntity(7, "Niagara on the Lake", 43.092875649144965, -79.10181633670241,false ))
+        cityDao.insertCity(CityEntity(8, "Bruce Peninsula National Park", 45.22019627293353, -81.53072878708778,false ))
+        cityDao.insertCity(CityEntity(9, "Canada Wonderland", 43.84250115771652, -79.54126914666733,false ))
+        cityDao.insertCity(CityEntity(10, "Toronto Islands", 43.620598839195516, -79.37761566733012,false ))
+        cityDao.insertCity(CityEntity(11, "ripley aquarium of canada", 43.64234151640285, -79.3866129313292,false ))
+        cityDao.insertCity(CityEntity(12, "Sault Ste Marie Canal", 46.51353071101094, -84.3500919778278,false ))
+        cityDao.insertCity(CityEntity(13, "Sleeping Giant", 48.353588159787996, -88.90314351610981,false ))
+        Log.d("maxLog", "populateDatabase push data to db!")
         }
     }
 }
-
-
-//cityDao.insertCity(CityEntity(7, "Niagara on the Lake", 43.092875649144965, -79.10181633670241,false ))
-//cityDao.insertCity(CityEntity(8, "Bruce Peninsula National Park", 45.22019627293353, -81.53072878708778,false ))
-//cityDao.insertCity(CityEntity(9, "Canada Wonderland", 43.84250115771652, -79.54126914666733,false ))
-//cityDao.insertCity(CityEntity(10, "Toronto Islands", 43.620598839195516, -79.37761566733012,false ))
-//cityDao.insertCity(CityEntity(11, "ripley aquarium of canada", 43.64234151640285, -79.3866129313292,false ))
-//cityDao.insertCity(CityEntity(12, "Sault Ste Marie Canal", 46.51353071101094, -84.3500919778278,false ))
-//cityDao.insertCity(CityEntity(13, "Sleeping Giant", 48.353588159787996, -88.90314351610981,false ))
-//Log.d("maxLog", "populateDatabase push data to db!")

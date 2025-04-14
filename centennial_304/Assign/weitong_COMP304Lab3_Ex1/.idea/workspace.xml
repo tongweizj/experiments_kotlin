@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="504d3d62-9770-4c25-b862-4954df6fdcdf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../c_Java_254/main/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../c_Java_254/main/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../c_Java_254/main/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../c_Java_254/main/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../c_Java_254/main/src/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$ActivityLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$BundleAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$CoilLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$ComposeLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$ComposeUiLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$CoreLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$CoroutinesLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$KoinAndroidLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$KoinLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$PluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$RetrofitLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$SerializationLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$TestComposeLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$TestLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$VersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$ActivityLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$BundleAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$CoilLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$ComposeLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$ComposeUiLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$CoreLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$CoroutinesLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$KoinAndroidLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$KoinLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$PluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$RetrofitLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$SerializationLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$TestComposeLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$TestLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$VersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/metadata.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/sources/org/gradle/accessors/dm/LibrariesForLibs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/sources/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.10.2/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$ActivityLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$BundleAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$CoilLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$ComposeLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$ComposeUiLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$CoreLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$CoroutinesLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$KoinAndroidLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$KoinLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$PluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$RetrofitLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$SerializationLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$TestComposeLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$TestLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs$VersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$ActivityLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$BundleAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$CoilLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$ComposeLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$ComposeUiLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$CoreLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$CoroutinesLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$KoinAndroidLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$KoinLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$PluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$RetrofitLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$SerializationLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$TestComposeLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$TestLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$VersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/sources/org/gradle/accessors/dm/LibrariesForLibs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/fb3f43096ea563fe290601963c075ddddb0644c8/sources/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/8.2/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/caches/deviceStreaming.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/deploymentTargetSelector.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/migrations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/androidTest/java/com/packt/chaptersix/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/ChapterSixApplication.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/data/Cat.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/data/CatsAPI.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/data/NetworkResult.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/data/Pet.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/data/PetsRepository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/data/PetsRepositoryImpl.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/di/Modules.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/ui/theme/Color.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/ui/theme/Theme.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/ui/theme/Type.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/viewmodel/PetsViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/views/PetList.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/java/com/packt/chaptersix/views/PetsUIState.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/app/src/test/java/com/packt/chaptersix/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/gradle/libs.versions.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/local.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chapter06/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/chaptersix.zip" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=/Users/weitong/.android/avd/Pixel_9_Pro_XL_API_35.avd)]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2uF9eeygv2gBRgfigndCJEf7tzC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="weitong_COMP304Lab3_Ex1.app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="504d3d62-9770-4c25-b862-4954df6fdcdf" name="Changes" comment="" />
+      <created>1741833551400</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741833551400</updated>
+    </task>
+    <servers />
+  </component>
+</project>
