@@ -9,7 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.packt.chapterseven.views.FavoriteScreen
 import com.packt.chapterseven.views.CitiesScreen
-import com.packt.chapterseven.views.WanderlensDetailsScreen
+import com.packt.chapterseven.views.WanderlenDetailsScreen
 import kotlinx.serialization.InternalSerializationApi
 
 
@@ -46,7 +46,7 @@ fun AppNavigation(
         ) { backStackEntry ->
             val cityId = backStackEntry.arguments?.getString("cityId")
             cityId?.let {
-                WanderlensDetailsScreen(
+                WanderlenDetailsScreen(
                     onBackPressed = {
                         navHostController.popBackStack()
                     },

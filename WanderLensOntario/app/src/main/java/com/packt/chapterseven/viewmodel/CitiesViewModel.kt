@@ -30,31 +30,31 @@ class CitiesViewModel(
     init {
         getCityList()
     }
-    @OptIn(InternalSerializationApi::class)
-     fun getAllCityWeather(cityList: List<City>){
-        //val cityList = citiesUIState.value.cityList
-        viewModelScope.launch {
-            Log.d("maxLog", "getAllCityWeather:${cityList.toString()}")
-
-//            cityList.forEach { city ->
-//            val response = weatherApi.getCurrentWeather(city.latitude, city.longitude)
-//            if (response.isSuccessful) {
-//                val weather = response.body()
-//                // 处理成功响应，例如更新 UI
-//                weather?.let {
-//                    // 使用 weather 对象更新 UI 或执行其他操作
-//                    val weatherMapData: HashMap<Int, Weather> = citiesUIState.value.weatherMap
-//                    weatherMapData[city.id] = it.current
-//                    citiesUIState.value.weatherMap =  weatherMapData
-//                }
-//            } else {
-//                val errorCode = response.code()
-//                val errorBody = response.errorBody()?.string()
-//                // 处理错误响应，例如显示错误消息
-//                println("错误代码：$errorCode，错误信息：$errorBody")
-//            }
-        }
-    }
+//    @OptIn(InternalSerializationApi::class)
+//     fun getAllCityWeather(cityList: List<City>){
+//        //val cityList = citiesUIState.value.cityList
+//        viewModelScope.launch {
+//            Log.d("maxLog", "getAllCityWeather:${cityList.toString()}")
+//
+////            cityList.forEach { city ->
+////            val response = weatherApi.getCurrentWeather(city.latitude, city.longitude)
+////            if (response.isSuccessful) {
+////                val weather = response.body()
+////                // 处理成功响应，例如更新 UI
+////                weather?.let {
+////                    // 使用 weather 对象更新 UI 或执行其他操作
+////                    val weatherMapData: HashMap<Int, Weather> = citiesUIState.value.weatherMap
+////                    weatherMapData[city.id] = it.current
+////                    citiesUIState.value.weatherMap =  weatherMapData
+////                }
+////            } else {
+////                val errorCode = response.code()
+////                val errorBody = response.errorBody()?.string()
+////                // 处理错误响应，例如显示错误消息
+////                println("错误代码：$errorCode，错误信息：$errorBody")
+////            }
+//        }
+//    }
 
 //    @OptIn(InternalSerializationApi::class)
 //    private fun getPets() {

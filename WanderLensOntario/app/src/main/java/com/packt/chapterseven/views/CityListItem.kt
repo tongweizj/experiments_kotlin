@@ -16,6 +16,7 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.packt.chapterseven.R
 import com.packt.chapterseven.data.City
+import kotlinx.coroutines.launch
 import kotlinx.serialization.InternalSerializationApi
 
 
@@ -35,6 +37,8 @@ fun CityListItem(
     onCityClicked: (City) -> Unit,
     onFavoriteClicked: (City) -> Unit
 ) {
+    // 使用 rememberCoroutineScope 避免阻塞UI线程
+    val scope = rememberCoroutineScope()
     // 创建景点城市名称到资源ID的映射
     val cityImageMap = mapOf(
         "thousand islands" to R.drawable.t1000islands,
@@ -63,7 +67,11 @@ fun CityListItem(
                 .fillMaxWidth()
                 .padding(bottom = 10.dp)
                 .clickable {
-                    onCityClicked(city)
+//                    onCityClicked(city)
+                    scope.launch {
+                        // 先立即导航，再处理其他逻辑
+                        onCityClicked(city)
+                    }
                 }
         ) {
             Image(
