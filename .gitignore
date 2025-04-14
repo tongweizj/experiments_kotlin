@@ -294,7 +294,6 @@ cmake-build-*/
 # Package Files #
 *.jar
 *.nar
-*.zip
 *.tar.gz
 *.rar
 
